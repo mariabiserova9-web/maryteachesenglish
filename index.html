@@ -1,1 +1,733 @@
-<!-- The HTML content will be inserted here manually after export from Canvas -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mary teaches English — визитка</title>
+
+  <!-- Шрифты -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-main: #ffffff;
+      --bg-accent: #f5f5f7;
+      --accent-1: #ffe69b;
+      --accent-2: #c1e5ff;
+      --accent-3: #ffd2dd;
+      --accent-4: #c7f2c4;
+      --accent-5: #e1d9ff;
+      --text-main: #1f2933;
+      --text-soft: #4b5563;
+      --accent-dark: #111827;
+      --button: #111827;
+      --button-hover: #111827;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.12);
+      --radius-xl: 26px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #f3f4ff 0, #ffffff 40%, #fdf2ff 100%);
+      color: var(--text-main);
+      min-height: 100vh;
+    }
+
+    .page-wrap {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 24px 16px 56px;
+    }
+
+    header {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-soft);
+      padding: 22px 28px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .logo-main {
+      font-family: "Pacifico", cursive;
+      font-size: 30px;
+      line-height: 1.1;
+    }
+
+    .logo-sub {
+      font-size: 14px;
+      color: var(--text-soft);
+    }
+
+    .tagline {
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #9ca3af;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .pill {
+      padding: 7px 14px;
+      border-radius: 999px;
+      background: #f3f4ff;
+      font-size: 12px;
+      color: #4b5563;
+      white-space: nowrap;
+    }
+
+    .btn-outline {
+      border-radius: 999px;
+      border: 1px solid #d1d5db;
+      background: #ffffff;
+      padding: 8px 16px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+    }
+
+    .btn-outline:hover {
+      background: #f3f4ff;
+      box-shadow: 0 8px 22px rgba(15, 23, 42, 0.14);
+      transform: translateY(-1px);
+    }
+
+    .icon-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(64px, 1fr));
+      gap: 10px;
+    }
+
+    .icon-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 10px;
+      font-size: 22px;
+      background: var(--bg-accent);
+    }
+
+    .icon-badge:nth-child(1) { background: var(--accent-1); }
+    .icon-badge:nth-child(2) { background: var(--accent-2); }
+    .icon-badge:nth-child(3) { background: var(--accent-3); }
+    .icon-badge:nth-child(4) { background: var(--accent-4); }
+    .icon-badge:nth-child(5) { background: var(--accent-5); }
+    .icon-badge:nth-child(6) { background: var(--accent-2); }
+    .icon-badge:nth-child(7) { background: var(--accent-4); }
+    .icon-badge:nth-child(8) { background: var(--accent-1); }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      gap: 32px;
+      margin-top: 28px;
+      align-items: center;
+    }
+
+    .hero-text {
+      background: rgba(255, 255, 255, 0.98);
+      border-radius: var(--radius-xl);
+      padding: 26px 26px 24px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-kicker {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #9ca3af;
+      margin-bottom: 8px;
+    }
+
+    .hero-title {
+      font-size: 26px;
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+
+    .hero-highlight {
+      font-weight: 600;
+      color: var(--accent-dark);
+    }
+
+    .hero-subtitle {
+      font-size: 14px;
+      color: var(--text-soft);
+      margin-bottom: 18px;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 22px;
+    }
+
+    .hero-tags span {
+      background: #f3f4ff;
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 12px;
+      color: #4b5563;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .btn-primary {
+      border: none;
+      border-radius: 999px;
+      padding: 11px 22px;
+      font-size: 14px;
+      font-weight: 500;
+      background: var(--button);
+      color: #ffffff;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.35);
+      transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+    }
+
+    .btn-primary:hover {
+      background: var(--button-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.45);
+    }
+
+    .btn-primary span {
+      font-size: 16px;
+    }
+
+    .hero-note {
+      font-size: 12px;
+      color: #9ca3af;
+    }
+
+    .hero-photo-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-photo-card {
+      position: relative;
+      border-radius: 32px;
+      overflow: hidden;
+      max-width: 360px;
+      width: 100%;
+      box-shadow: 0 28px 55px rgba(15, 23, 42, 0.45);
+      background: #111827;
+    }
+
+    .hero-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo-badge {
+      position: absolute;
+      left: 16px;
+      bottom: 16px;
+      background: rgba(17, 24, 39, 0.92);
+      color: #e5e7eb;
+      padding: 9px 13px;
+      border-radius: 999px;
+      font-size: 11px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      backdrop-filter: blur(10px);
+    }
+
+    .photo-badge span {
+      font-size: 16px;
+    }
+
+    .about-grid {
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.9fr);
+      gap: 24px;
+    }
+
+    .section {
+      background: rgba(255, 255, 255, 0.98);
+      border-radius: var(--radius-xl);
+      padding: 24px 24px 22px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .section-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .section-chip {
+      font-size: 11px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: #f3f4ff;
+      color: #6b7280;
+      white-space: nowrap;
+    }
+
+    .section p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text-soft);
+    }
+
+    .section p + p {
+      margin-top: 10px;
+    }
+
+    .emphasis {
+      font-weight: 600;
+      color: var(--accent-dark);
+    }
+
+    .list-soft {
+      margin-top: 10px;
+      list-style: none;
+      display: grid;
+      gap: 6px;
+      font-size: 14px;
+      color: var(--text-soft);
+    }
+
+    .list-soft li::before {
+      content: "•";
+      margin-right: 6px;
+      color: #6d28d9;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+      font-size: 12px;
+    }
+
+    .badge-row span {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #f3f4ff;
+      color: #4b5563;
+    }
+
+    .contacts {
+      margin-top: 26px;
+      display: grid;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--text-soft);
+    }
+
+    .contacts a {
+      color: #111827;
+      text-decoration: none;
+      border-bottom: 1px dashed rgba(17, 24, 39, 0.25);
+    }
+
+    .contacts a:hover {
+      border-bottom-style: solid;
+    }
+
+    .contact-section {
+      margin-top: 28px;
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+      gap: 24px;
+    }
+
+    .contact-text p {
+      font-size: 14px;
+      color: var(--text-soft);
+      line-height: 1.6;
+    }
+
+    .contact-text p + p {
+      margin-top: 10px;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 13px;
+    }
+
+    .field label {
+      color: #4b5563;
+    }
+
+    .field input,
+    .field textarea,
+    .field select {
+      border-radius: 999px;
+      border: 1px solid #e5e7eb;
+      padding: 9px 13px;
+      font: inherit;
+      outline: none;
+      transition: border 0.15s ease, box-shadow 0.15s ease;
+      background: #f9fafb;
+    }
+
+    .field textarea {
+      border-radius: 18px;
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    .field input:focus,
+    .field textarea:focus,
+    .field select:focus {
+      border-color: #6366f1;
+      box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.5);
+      background: #ffffff;
+    }
+
+    .form-note {
+      font-size: 11px;
+      color: #9ca3af;
+      margin-top: 2px;
+    }
+
+    .btn-submit {
+      margin-top: 4px;
+      justify-self: flex-start;
+    }
+
+    footer {
+      margin-top: 32px;
+      font-size: 11px;
+      color: #9ca3af;
+      text-align: center;
+    }
+
+    @media (max-width: 880px) {
+      header {
+        padding: 18px 18px 16px;
+      }
+
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-photo-wrap {
+        order: -1;
+      }
+
+      .about-grid,
+      .contact-layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-title {
+        font-size: 22px;
+      }
+
+      .logo-main {
+        font-size: 26px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .page-wrap {
+        padding-inline: 14px;
+      }
+
+      .hero-text,
+      .section {
+        padding-inline: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+    <header>
+      <div class="top-bar">
+        <div class="logo">
+          <div class="logo-main">Mary teaches English</div>
+          <div class="logo-sub">Английский для тебя</div>
+          <div class="tagline">It is personal</div>
+        </div>
+        <div class="header-actions">
+          <div class="pill">Онлайн-уроки для взрослых и не только</div>
+          <button class="btn-outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">
+            Оставить заявку
+          </button>
+        </div>
+      </div>
+      <div class="icon-row" aria-hidden="true">
+        <div class="icon-badge">💡</div>
+        <div class="icon-badge">🌍</div>
+        <div class="icon-badge">🎓</div>
+        <div class="icon-badge">🔔</div>
+        <div class="icon-badge">💻</div>
+        <div class="icon-badge">📚</div>
+        <div class="icon-badge">🧠</div>
+        <div class="icon-badge">⏳</div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-text">
+          <div class="hero-kicker">Рада, что ты здесь</div>
+          <h1 id="hero-title" class="hero-title">
+            Привет! Я <span class="hero-highlight">Мария</span> — преподаватель общего английского и английского для
+            специальных целей для взрослых.
+          </h1>
+          <p class="hero-subtitle">
+            Помогаю взрослым заговорить по-английски в комфортной, аутентичной среде — без учебникового пафоса, но с
+            системной опорой на твои реальные цели.
+          </p>
+          <div class="hero-tags">
+            <span>General English</span>
+            <span>English for Specific Purposes</span>
+            <span>Онлайн-формат с 2023</span>
+          </div>
+          <div class="hero-actions">
+            <a href="#contact" class="btn-primary">
+              <span>Оставить заявку</span> →
+            </a>
+            <div class="hero-note">или пролистай ниже, чтобы познакомиться поближе</div>
+          </div>
+        </div>
+
+        <div class="hero-photo-wrap">
+          <div class="hero-photo-card">
+            <!-- Фото Марии. В онлайн-версии Canvas путь уже настроен; 
+                 для публикации на хостинге замени src на свою картинку. -->
+            <img class="hero-photo" src="photo.jpg" alt="Мария, преподаватель английского" />
+            <div class="photo-badge">
+              <span>✨</span>
+              <div>
+                6+ лет преподавания<br />
+                It is personal.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="about-grid" id="about">
+        <article class="section">
+          <div class="section-title-row">
+            <h2 class="section-title">Немного обо мне</h2>
+            <div class="section-chip">Кто я за фрукт?</div>
+          </div>
+          <p>
+            Рада приветствовать тебя на этой страничке. Меня зовут Мария, я преподаватель общего английского и английского
+            для специальных целей для взрослых. Если ты попал на эту страничку, возможно, тебя заинтересовало что-то из
+            предложенных мною постов. Расскажу, что я за фрукт.
+          </p>
+          <p>
+            Окончила Уральский федеральный университет имени Бориса Ельцина в 2019 году (специализация
+            романо-германская филология, читай: английский и английская литература), отучилась курс магистратуры в РГПУ
+            им. А.И. Герцена (2020–2021 гг.), в данный момент обучаюсь в КГУ (направление «Педагогический менеджмент»).
+          </p>
+          <p>
+            Преподаю английский с 2018 года (уже 6 лет, ого) взрослым и детям. Имею опыт преподавания в различных
+            языковых школах в г. Санкт-Петербург, Екатеринбург. С 2023 года полностью перешла в онлайн-формат.
+          </p>
+          <p>
+            Неоднократно проходила курсы повышения квалификации по профилю (TESOL), участвовала в качестве слушателя и
+            спикера в региональных и международных конференциях, была ведущим методистом сети языковых школ, а также
+            академическим директором в лингвистическом центре. В данный момент я просто преподаватель английского, который
+            искренне наслаждается своей работой.
+          </p>
+          <p>
+            Стремлюсь научить своих студентов понимать и любить английский в комфортной аутентичной среде. Мой девиз:
+            <span class="emphasis">It is personal.</span>
+          </p>
+          <p>
+            Захотели поучиться со мной? Оставьте заявку выше :) Или сразу заполните форму ниже — я свяжусь с вами в
+            ближайшее время.
+          </p>
+        </article>
+
+        <aside class="section">
+          <div class="section-title-row">
+            <h2 class="section-title">Формат и специализация</h2>
+            <div class="section-chip">Что мы можем делать вместе</div>
+          </div>
+          <ul class="list-soft">
+            <li>Общий английский для взрослых: разговор, грамматика, уверенность в реальных ситуациях.</li>
+            <li>Английский для специальных целей (ESP) — для медицинской сферы и не только.</li>
+            <li>Поддержка в подготовке к конференциям, выступлениям, учебе и работе.</li>
+            <li>Онлайн-занятия 1:1 из любого города и часового пояса.</li>
+          </ul>
+          <div class="badge-row">
+            <span>6+ лет преподавания</span>
+            <span>TESOL &amp; конференции</span>
+            <span>Опыт в языковых школах</span>
+            <span>Педагогический менеджмент</span>
+          </div>
+
+          <div class="contacts">
+            <div><strong>Город:</strong> Курган</div>
+            <div>
+              <strong>Телефон:</strong>
+              <a href="tel:+79122771736">+7&nbsp;912&nbsp;277&nbsp;17&nbsp;36</a>
+            </div>
+            <div>
+              <strong>ВКонтакте:</strong>
+              <a href="https://vk.com/milochkamari" target="_blank" rel="noopener noreferrer">vk.com/milochkamari</a>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="section contact-section" id="contact">
+        <div class="section-title-row">
+          <h2 class="section-title">Оставить заявку на обучение</h2>
+          <div class="section-chip">связаться со мной</div>
+        </div>
+        <div class="contact-layout">
+          <div class="contact-text">
+            <p>
+              Заполни короткую форму: пару строк о себе и своих целях — и я напишу тебе на почту, чтобы обсудить формат,
+              расписание и подходящие варианты занятий.
+            </p>
+            <p>
+              Обращение к мне уже шаг в сторону английского, который наконец-то <span class="emphasis">работает на тебя</span>.
+            </p>
+          </div>
+
+          <form
+            class="contact-form"
+            action="mailto:maria.biserova9@gmail.com"
+            method="post"
+            enctype="text/plain"
+          >
+            <!-- ВАЖНО: для полноценной отправки заявок без почтового клиента понадобится серверная часть. 
+                 Сейчас форма открывает почтовое приложение с готовым письмом на указанный адрес. -->
+            <div class="field">
+              <label for="name">Как тебя зовут?</label>
+              <input type="text" id="name" name="Имя" placeholder="Например, Анна" required />
+            </div>
+
+            <div class="field">
+              <label for="email">Электронная почта</label>
+              <input
+                type="email"
+                id="email"
+                name="Email"
+                placeholder="name@example.com"
+                required
+              />
+            </div>
+
+            <div class="field">
+              <label for="format">Желаемый формат занятий</label>
+              <select id="format" name="Формат">
+                <option value="Общий английский (взрослый)">Общий английский (взрослый)</option>
+                <option value="Английский для специальных целей (ESP)">Английский для специальных целей (ESP)</option>
+                <option value="Смешанный формат">Смешанный формат</option>
+                <option value="Пока не знаю, нужна консультация">Пока не знаю, нужна консультация</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="message">Кратко о целях и запросе</label>
+              <textarea
+                id="message"
+                name="Сообщение"
+                placeholder="Например: хочу перестать бояться говорить с иностранными коллегами / нужна поддержка в учёбе / готовлюсь к конференции и т.д."
+                required
+              ></textarea>
+            </div>
+
+            <div class="field">
+              <label for="contact-way">Где удобнее всего связаться с тобой?</label>
+              <input
+                type="text"
+                id="contact-way"
+                name="Контакт"
+                placeholder="Телеграм, ВК, почта — то, что ты реально читаешь"
+              />
+            </div>
+
+            <p class="form-note">
+              Нажимая на кнопку, ты создаёшь письмо на адрес <strong>maria.biserova9@gmail.com</strong> — останется только
+              отправить его.
+            </p>
+
+            <button type="submit" class="btn-primary btn-submit">
+              <span>Отправить заявку</span> →
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      Mary teaches English — it is personal · Онлайн-репетитор английского языка
+    </footer>
+  </div>
+</body>
+</html>
