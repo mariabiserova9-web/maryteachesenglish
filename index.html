@@ -507,6 +507,29 @@
       gap: 16px;
       align-items: flex-start;
     }
+    .modal-left {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .modal-icon-frame {
+      align-self: center;
+      width: 90px;
+      height: 90px;
+      border-radius: 18px;
+      border: var(--border-bold);
+      background: #fffef7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 3px 3px 0 #111111;
+    }
+
+    .modal-icon-frame svg {
+      width: 60px;
+      height: 60px;
+    }
 
     .modal-carousel {
       position: relative;
@@ -1072,20 +1095,35 @@
         <h3 class="modal-title">Базовый курс · 60 минут</h3>
         <button class="modal-close" data-close-modal>&times;</button>
       </div>
-      <div class="modal-grid">
-        <div class="modal-carousel" data-carousel>
-          <div class="carousel-track">
-            <div class="carousel-slide is-active">
-              <img src="img/basic-60-1.jpg" alt="Базовый курс английского, 60 минут" />
-            </div>
-            <div class="carousel-slide">
-              <img src="img/basic-60-2.jpg" alt="Материалы и занятия базового курса" />
-            </div>
-          </div>
-          <button class="carousel-control prev" data-carousel-prev>&lsaquo;</button>
-          <button class="carousel-control next" data-carousel-next>&rsaquo;</button>
+<div class="modal-grid">
+  <div class="modal-left">
+    <div class="modal-icon-frame">
+      <!-- та же иконка, что в карточке "Базовый курс · 60 минут" -->
+      <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 4h11a3 3 0 0 1 3 3v11H8a3 3 0 0 0-3 3V4z" fill="#ffeab0"></path>
+        <path d="M9 4v13"></path>
+        <path d="M9 8h7"></path>
+      </svg>
+    </div>
+
+    <div class="modal-carousel" data-carousel>
+      <div class="carousel-track">
+        <div class="carousel-slide is-active">
+          <img src="img/basic-60-1.jpg" alt="Базовый курс английского, 60 минут" />
         </div>
-        <div class="modal-content">
+        <div class="carousel-slide">
+          <img src="img/basic-60-2.jpg" alt="Материалы и занятия базового курса" />
+        </div>
+      </div>
+      <button class="carousel-control prev" data-carousel-prev>&lsaquo;</button>
+      <button class="carousel-control next" data-carousel-next>&rsaquo;</button>
+    </div>
+  </div>
+
+  <div class="modal-content">
+    ...
+  </div>
+</div>
           <p>
             Курс для тех, кто хочет системно подтянуть общий английский: обновить грамматику, пополнить словарный запас и
             начать уверенно говорить в повседневных ситуациях.
