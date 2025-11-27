@@ -5,25 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mary teaches English — визитка</title>
 
-  <!-- Шрифты -->
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Комикс-стиль: один шрифт на весь сайт -->
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
     :root {
-      --bg-main: #ffffff;
-      --bg-accent: #f5f5f7;
-      --accent-1: #ffe69b;
-      --accent-2: #c1e5ff;
-      --accent-3: #ffd2dd;
-      --accent-4: #c7f2c4;
-      --accent-5: #e1d9ff;
-      --text-main: #1f2933;
-      --text-soft: #4b5563;
-      --accent-dark: #111827;
-      --button: #111827;
-      --button-hover: #111827;
-      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.12);
-      --radius-xl: 26px;
+      /* Цветокод в духе комиксов: тёплые и контрастные оттенки */
+      --bg-main: #fff7f2;
+      --bg-panel: #fffdf9;
+      --ink: #111111;
+      --accent-yellow: #ffd76a;
+      --accent-blue: #8fd5ff;
+      --accent-pink: #ff9fb9;
+      --accent-mint: #b9f2d2;
+      --accent-purple: #d2c3ff;
+      --text-main: #111111;
+      --text-soft: #373737;
+      --border-bold: 3px solid #111111;
+      --shadow-comic: 4px 4px 0 #111111;
+      --radius-card: 18px;
+      --nav-height: 64px;
     }
 
     * {
@@ -37,227 +38,219 @@
     }
 
     body {
-      font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont,
-        "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top left, #f3f4ff 0, #ffffff 40%, #fdf2ff 100%);
+      font-family: "Baloo 2", system-ui, sans-serif;
+      background:
+        radial-gradient(circle at 0 0, rgba(0, 0, 0, 0.04) 0, transparent 18px),
+        radial-gradient(circle at 100% 0, rgba(0, 0, 0, 0.04) 0, transparent 18px),
+        var(--bg-main);
+      background-size: 140px 140px;
       color: var(--text-main);
       min-height: 100vh;
     }
 
     .page-wrap {
-      max-width: 1080px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 24px 16px 56px;
+      padding: 0 16px 64px;
     }
 
-    header {
-      background: rgba(255, 255, 255, 0.95);
-      border-radius: var(--radius-xl);
-      box-shadow: var(--shadow-soft);
-      padding: 22px 28px 18px;
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
+    /* ===== Навигация ===== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background-color: var(--bg-main);
+      border-bottom: 2px solid #11111122;
     }
 
-    .top-bar {
+    .nav-bar {
+      height: var(--nav-height);
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 16px;
-      flex-wrap: wrap;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 8px 16px;
     }
 
-    .logo {
+    .brand {
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      line-height: 1.05;
     }
 
-    .logo-main {
-      font-family: "Pacifico", cursive;
-      font-size: 30px;
-      line-height: 1.1;
-    }
-
-    .logo-sub {
-      font-size: 14px;
-      color: var(--text-soft);
-    }
-
-    .tagline {
-      font-size: 12px;
-      letter-spacing: 0.16em;
+    .brand-main {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
-      color: #9ca3af;
     }
 
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .pill {
-      padding: 7px 14px;
-      border-radius: 999px;
-      background: #f3f4ff;
+    .brand-sub {
       font-size: 12px;
-      color: #4b5563;
-      white-space: nowrap;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
     }
 
-    .btn-outline {
-      border-radius: 999px;
-      border: 1px solid #d1d5db;
-      background: #ffffff;
-      padding: 8px 16px;
-      font-size: 13px;
-      cursor: pointer;
-      transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+    .nav-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
-    .btn-outline:hover {
-      background: #f3f4ff;
-      box-shadow: 0 8px 22px rgba(15, 23, 42, 0.14);
+    .nav-links a {
+      font-size: 14px;
+      text-decoration: none;
+      color: var(--text-main);
+      padding: 4px 10px;
+      border-radius: 20px;
+      border: 2px solid transparent;
+      transition: background 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+    }
+
+    .nav-links a:hover {
+      background: var(--accent-yellow);
+      border-color: #111111;
       transform: translateY(-1px);
     }
 
-    .icon-row {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(64px, 1fr));
-      gap: 10px;
-    }
-
-    .icon-badge {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .nav-cta {
+      font-size: 14px;
+      text-decoration: none;
+      color: var(--ink);
+      padding: 8px 14px;
       border-radius: 999px;
-      padding: 10px;
-      font-size: 22px;
-      background: var(--bg-accent);
+      background: var(--accent-pink);
+      border: var(--border-bold);
+      box-shadow: var(--shadow-comic);
+      white-space: nowrap;
+      transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.15s ease;
     }
 
-    .icon-badge:nth-child(1) { background: var(--accent-1); }
-    .icon-badge:nth-child(2) { background: var(--accent-2); }
-    .icon-badge:nth-child(3) { background: var(--accent-3); }
-    .icon-badge:nth-child(4) { background: var(--accent-4); }
-    .icon-badge:nth-child(5) { background: var(--accent-5); }
-    .icon-badge:nth-child(6) { background: var(--accent-2); }
-    .icon-badge:nth-child(7) { background: var(--accent-4); }
-    .icon-badge:nth-child(8) { background: var(--accent-1); }
+    .nav-cta:hover {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0 #111111;
+      background: #ffc0d3;
+    }
 
-    .hero {
+    @media (max-width: 720px) {
+      .nav-bar {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .brand {
+        align-items: center;
+      }
+    }
+
+    /* ===== Общие элементы комикс-стиля ===== */
+    .panel {
+      background: var(--bg-panel);
+      border-radius: var(--radius-card);
+      border: var(--border-bold);
+      box-shadow: var(--shadow-comic);
+      padding: 24px 24px 22px;
+    }
+
+    .panel-hero {
+      margin-top: 24px;
       display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-      gap: 32px;
-      margin-top: 28px;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 28px;
       align-items: center;
-    }
-
-    .hero-text {
-      background: rgba(255, 255, 255, 0.98);
-      border-radius: var(--radius-xl);
-      padding: 26px 26px 24px;
-      box-shadow: var(--shadow-soft);
     }
 
     .hero-kicker {
-      font-size: 12px;
+      font-size: 13px;
       text-transform: uppercase;
       letter-spacing: 0.18em;
-      color: #9ca3af;
       margin-bottom: 8px;
+      color: var(--text-soft);
     }
 
     .hero-title {
       font-size: 26px;
-      line-height: 1.25;
-      margin-bottom: 12px;
+      line-height: 1.2;
+      margin-bottom: 10px;
     }
 
     .hero-highlight {
-      font-weight: 600;
-      color: var(--accent-dark);
+      background: var(--accent-yellow);
+      padding: 2px 6px;
+      border-radius: 10px;
+      box-decoration-break: clone;
     }
 
     .hero-subtitle {
-      font-size: 14px;
+      font-size: 15px;
       color: var(--text-soft);
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     .hero-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-bottom: 22px;
+      margin-bottom: 18px;
     }
 
     .hero-tags span {
-      background: #f3f4ff;
+      background: var(--accent-blue);
+      padding: 4px 10px;
       border-radius: 999px;
-      padding: 6px 12px;
+      border: 2px solid #111111;
       font-size: 12px;
-      color: #4b5563;
     }
 
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
-    }
-
-    .btn-primary {
-      border: none;
-      border-radius: 999px;
-      padding: 11px 22px;
-      font-size: 14px;
-      font-weight: 500;
-      background: var(--button);
-      color: #ffffff;
-      cursor: pointer;
+    .btn-comic {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      justify-content: center;
+      padding: 9px 16px;
+      border-radius: 999px;
+      border: var(--border-bold);
+      background: var(--accent-mint);
+      font-size: 14px;
+      cursor: pointer;
       text-decoration: none;
-      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.35);
-      transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+      color: var(--ink);
+      box-shadow: var(--shadow-comic);
+      transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.15s ease;
     }
 
-    .btn-primary:hover {
-      background: var(--button-hover);
-      transform: translateY(-1px);
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.45);
+    .btn-comic.primary {
+      background: var(--accent-yellow);
     }
 
-    .btn-primary span {
-      font-size: 16px;
+    .btn-comic:hover {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0 #111111;
+      background: #ffeab0;
     }
 
     .hero-note {
       font-size: 12px;
-      color: #9ca3af;
+      color: var(--text-soft);
+      margin-top: 6px;
     }
 
     .hero-photo-wrap {
       position: relative;
       display: flex;
-      align-items: center;
       justify-content: center;
     }
 
     .hero-photo-card {
-      position: relative;
-      border-radius: 32px;
-      overflow: hidden;
       max-width: 360px;
       width: 100%;
-      box-shadow: 0 28px 55px rgba(15, 23, 42, 0.45);
-      background: #111827;
+      border-radius: 26px;
+      overflow: hidden;
+      border: var(--border-bold);
+      box-shadow: 6px 6px 0 #111111;
+      background: #111111;
     }
 
     .hero-photo {
@@ -269,77 +262,66 @@
 
     .photo-badge {
       position: absolute;
-      left: 16px;
-      bottom: 16px;
-      background: rgba(17, 24, 39, 0.92);
-      color: #e5e7eb;
-      padding: 9px 13px;
+      left: 14px;
+      bottom: 14px;
+      background: var(--accent-blue);
       border-radius: 999px;
+      border: var(--border-bold);
+      padding: 8px 12px;
       font-size: 11px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow-comic);
     }
 
-    .photo-badge span {
-      font-size: 16px;
+    /* ===== Секции ===== */
+    main {
+      margin-top: 12px;
     }
 
-    .about-grid {
-      margin-top: 40px;
+    .sections-grid {
+      margin-top: 28px;
       display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.9fr);
-      gap: 24px;
-    }
-
-    .section {
-      background: rgba(255, 255, 255, 0.98);
-      border-radius: var(--radius-xl);
-      padding: 24px 24px 22px;
-      box-shadow: var(--shadow-soft);
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.9fr);
+      gap: 20px;
     }
 
     .section-title-row {
       display: flex;
-      align-items: center;
+      align-items: baseline;
       justify-content: space-between;
       gap: 10px;
-      margin-bottom: 14px;
+      margin-bottom: 10px;
     }
 
     .section-title {
-      font-size: 18px;
-      font-weight: 600;
+      font-size: 20px;
     }
 
     .section-chip {
       font-size: 11px;
-      padding: 5px 10px;
+      padding: 3px 8px;
       border-radius: 999px;
-      background: #f3f4ff;
-      color: #6b7280;
-      white-space: nowrap;
+      border: var(--border-bold);
+      background: var(--accent-purple);
     }
 
-    .section p {
+    .panel p {
       font-size: 14px;
-      line-height: 1.6;
+      line-height: 1.7;
       color: var(--text-soft);
     }
 
-    .section p + p {
-      margin-top: 10px;
+    .panel p + p {
+      margin-top: 8px;
     }
 
     .emphasis {
       font-weight: 600;
-      color: var(--accent-dark);
+      color: var(--text-main);
     }
 
     .list-soft {
-      margin-top: 10px;
       list-style: none;
+      margin-top: 8px;
       display: grid;
       gap: 6px;
       font-size: 14px;
@@ -347,9 +329,8 @@
     }
 
     .list-soft li::before {
-      content: "•";
+      content: "▸";
       margin-right: 6px;
-      color: #6d28d9;
     }
 
     .badge-row {
@@ -361,54 +342,255 @@
     }
 
     .badge-row span {
-      padding: 6px 10px;
+      padding: 4px 8px;
       border-radius: 999px;
-      background: #f3f4ff;
-      color: #4b5563;
+      border: 2px solid #111111;
+      background: var(--accent-yellow);
     }
 
     .contacts {
-      margin-top: 26px;
+      margin-top: 14px;
       display: grid;
-      gap: 8px;
+      gap: 6px;
       font-size: 14px;
-      color: var(--text-soft);
     }
 
     .contacts a {
-      color: #111827;
+      color: var(--text-main);
       text-decoration: none;
-      border-bottom: 1px dashed rgba(17, 24, 39, 0.25);
+      border-bottom: 1px dashed #111111;
     }
 
     .contacts a:hover {
       border-bottom-style: solid;
     }
 
-    .contact-section {
-      margin-top: 28px;
+    /* ===== Прайс-лист: карточки ===== */
+    .section-pricing {
+      margin-top: 30px;
     }
 
-    .contact-layout {
+    .product-grid {
+      margin-top: 12px;
       display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
-      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
     }
 
-    .contact-text p {
+    .product-card {
+      background: #fffef7;
+      border-radius: var(--radius-card);
+      border: var(--border-bold);
+      box-shadow: var(--shadow-comic);
+      padding: 14px 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      position: relative;
+    }
+
+    .product-ribbon {
+      position: absolute;
+      top: 10px;
+      left: -2px;
+      background: var(--accent-blue);
+      padding: 2px 10px;
+      border-radius: 0 999px 999px 0;
+      border: var(--border-bold);
+      font-size: 11px;
+    }
+
+    .product-image-frame {
+      border-radius: 14px;
+      border: var(--border-bold);
+      overflow: hidden;
+      background: #f4f4f4;
+      aspect-ratio: 4 / 3;
+      margin-bottom: 6px;
+    }
+
+    .product-image-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .product-title {
+      font-size: 16px;
+    }
+
+    .product-desc {
+      font-size: 13px;
+      color: var(--text-soft);
+      flex-grow: 1;
+    }
+
+    .product-price {
+      font-size: 14px;
+      margin-top: 4px;
+    }
+
+    .product-price span {
+      background: var(--accent-yellow);
+      padding: 2px 6px;
+      border-radius: 12px;
+      border: 2px solid #111111;
+    }
+
+    .product-actions {
+      margin-top: 10px;
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    /* ===== Модальные окна и карусель ===== */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 80;
+      padding: 16px;
+    }
+
+    .modal-overlay.is-open {
+      display: flex;
+    }
+
+    .modal-dialog {
+      background: var(--bg-panel);
+      border-radius: 22px;
+      border: var(--border-bold);
+      box-shadow: 6px 6px 0 #111111;
+      max-width: 760px;
+      width: 100%;
+      padding: 18px 18px 20px;
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .modal-title {
+      font-size: 18px;
+    }
+
+    .modal-close {
+      border: var(--border-bold);
+      background: var(--accent-pink);
+      border-radius: 999px;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 18px;
+      line-height: 1;
+      box-shadow: var(--shadow-comic);
+    }
+
+    .modal-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.15fr);
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .modal-carousel {
+      position: relative;
+      border-radius: 16px;
+      border: var(--border-bold);
+      overflow: hidden;
+      background: #f5f5f5;
+      min-height: 220px;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.3s ease;
+    }
+
+    .carousel-slide {
+      min-width: 100%;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .carousel-slide.is-active {
+      opacity: 1;
+    }
+
+    .carousel-control {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      border: var(--border-bold);
+      background: var(--accent-yellow);
+      border-radius: 999px;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 18px;
+      box-shadow: var(--shadow-comic);
+    }
+
+    .carousel-control.prev { left: 10px; }
+    .carousel-control.next { right: 10px; }
+
+    .modal-content p {
       font-size: 14px;
       color: var(--text-soft);
-      line-height: 1.6;
     }
 
-    .contact-text p + p {
+    .modal-content p + p {
+      margin-top: 8px;
+    }
+
+    .modal-price {
       margin-top: 10px;
+      font-size: 15px;
+    }
+
+    .modal-price span {
+      background: var(--accent-yellow);
+      padding: 2px 6px;
+      border-radius: 12px;
+      border: 2px solid #111111;
+    }
+
+    .modal-footer {
+      margin-top: 14px;
+    }
+
+    /* ===== Контакты и форма ===== */
+    .contact-layout {
+      margin-top: 12px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.05fr);
+      gap: 18px;
     }
 
     .contact-form {
       display: grid;
       gap: 10px;
-      margin-top: 6px;
     }
 
     .field {
@@ -419,59 +601,41 @@
     }
 
     .field label {
-      color: #4b5563;
+      color: var(--text-main);
     }
 
     .field input,
     .field textarea,
     .field select {
       border-radius: 999px;
-      border: 1px solid #e5e7eb;
-      padding: 9px 13px;
+      border: var(--border-bold);
+      padding: 7px 12px;
       font: inherit;
       outline: none;
-      transition: border 0.15s ease, box-shadow 0.15s ease;
-      background: #f9fafb;
+      background: #ffffff;
     }
 
     .field textarea {
-      border-radius: 18px;
+      border-radius: 16px;
       min-height: 90px;
       resize: vertical;
     }
 
-    .field input:focus,
-    .field textarea:focus,
-    .field select:focus {
-      border-color: #6366f1;
-      box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.5);
-      background: #ffffff;
-    }
-
     .form-note {
       font-size: 11px;
-      color: #9ca3af;
-      margin-top: 2px;
-    }
-
-    .btn-submit {
+      color: var(--text-soft);
       margin-top: 4px;
-      justify-self: flex-start;
     }
 
     footer {
-      margin-top: 32px;
+      margin-top: 30px;
       font-size: 11px;
-      color: #9ca3af;
       text-align: center;
+      color: var(--text-soft);
     }
 
     @media (max-width: 880px) {
-      header {
-        padding: 18px 18px 16px;
-      }
-
-      .hero {
+      .panel-hero {
         grid-template-columns: minmax(0, 1fr);
       }
 
@@ -479,255 +643,781 @@
         order: -1;
       }
 
-      .about-grid,
-      .contact-layout {
+      .sections-grid,
+      .contact-layout,
+      .modal-grid {
         grid-template-columns: minmax(0, 1fr);
+      }
+
+      .modal-dialog {
+        padding-inline: 14px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .page-wrap {
+        padding-inline: 12px;
+      }
+
+      .panel {
+        padding-inline: 18px;
       }
 
       .hero-title {
         font-size: 22px;
       }
 
-      .logo-main {
-        font-size: 26px;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .page-wrap {
-        padding-inline: 14px;
-      }
-
-      .hero-text,
-      .section {
-        padding-inline: 18px;
+      .nav-cta {
+        font-size: 13px;
       }
     }
   </style>
 </head>
 <body>
+  <header class="site-header">
+    <div class="nav-bar">
+      <div class="brand">
+        <div class="brand-main">Mary teaches English</div>
+        <div class="brand-sub">it is personal</div>
+      </div>
+      <nav class="nav-links">
+        <a href="#about">Обо мне</a>
+        <a href="#format">Формат</a>
+        <a href="#pricing">Прайс-лист</a>
+        <a href="#contact">Контакты</a>
+      </nav>
+      <a href="#contact" class="nav-cta">Записаться</a>
+    </div>
+  </header>
+
   <div class="page-wrap">
-    <header>
-      <div class="top-bar">
-        <div class="logo">
-          <div class="logo-main">Mary teaches English</div>
-          <div class="logo-sub">Английский для тебя</div>
-          <div class="tagline">It is personal</div>
+    <!-- HERO -->
+    <section class="panel panel-hero" id="top">
+      <div>
+        <div class="hero-kicker">Рада, что ты здесь</div>
+        <h1 class="hero-title">
+          Привет! Я <span class="hero-highlight">Мария</span> — преподаватель общего английского и английского для
+          специальных целей для взрослых.
+        </h1>
+        <p class="hero-subtitle">
+          Помогаю взрослым понимать и любить английский в комфортной, аутентичной среде — без лишнего пафоса, но с
+          системной работой под твои реальные запросы.
+        </p>
+        <div class="hero-tags">
+          <span>General English</span>
+          <span>English for Specific Purposes</span>
+          <span>Онлайн-формат с 2023 года</span>
         </div>
-        <div class="header-actions">
-          <div class="pill">Онлайн-уроки для взрослых и не только</div>
-          <button class="btn-outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">
-            Оставить заявку
-          </button>
+        <a href="#contact" class="btn-comic primary">Оставить заявку</a>
+        <div class="hero-note">Можно дочитать страницу до конца, а можно написать уже сейчас.</div>
+      </div>
+
+      <div class="hero-photo-wrap">
+        <div class="hero-photo-card">
+          <!-- Для GitHub Pages помести файл photo.jpg рядом с index.html -->
+          <img class="hero-photo" src="photo.jpg" alt="Мария, преподаватель английского" />
+          <div class="photo-badge">6+ лет преподавания · Pedagogical management in progress</div>
         </div>
       </div>
-      <div class="icon-row" aria-hidden="true">
-        <div class="icon-badge">💡</div>
-        <div class="icon-badge">🌍</div>
-        <div class="icon-badge">🎓</div>
-        <div class="icon-badge">🔔</div>
-        <div class="icon-badge">💻</div>
-        <div class="icon-badge">📚</div>
-        <div class="icon-badge">🧠</div>
-        <div class="icon-badge">⏳</div>
+    </section>
+
+    <!-- ОБО МНЕ + ФОРМАТ -->
+    <section class="sections-grid" id="about">
+      <article class="panel">
+        <div class="section-title-row">
+          <h2 class="section-title">Немного обо мне</h2>
+          <div class="section-chip">кто я за фрукт?</div>
+        </div>
+        <p>
+          Рада приветствовать тебя на этой страничке. Меня зовут Мария, я преподаватель общего английского и английского
+          для специальных целей для взрослых. Если ты попал на эту страничку, возможно, тебя заинтересовало что-то из
+          предложенных мною постов. Расскажу, что я за фрукт.
+        </p>
+        <p>
+          Окончила Уральский федеральный университет имени Бориса Ельцина в 2019 году (специализация романо-германская
+          филология, читай: английский и английская литература), отучилась курс магистратуры в РГПУ им. А.И. Герцена
+          (2020–2021 гг.), в данный момент обучаюсь в КГУ (направление «Педагогический менеджмент»).
+        </p>
+        <p>
+          Преподаю английский с 2018 года (уже 6 лет, ого) взрослым и детям. Имею опыт преподавания в различных языковых
+          школах в г. Санкт-Петербург, Екатеринбург. С 2023 года полностью перешла в онлайн-формат.
+        </p>
+        <p>
+          Неоднократно проходила курсы повышения квалификации по профилю (TESOL), участвовала в качестве слушателя и
+          спикера в региональных и международных конференциях, была ведущим методистом сети языковых школ, а также
+          академическим директором в лингвистическом центре. В данный момент я просто преподаватель английского, который
+          искренне наслаждается своей работой.
+        </p>
+        <p>
+          Стремлюсь научить своих студентов понимать и любить английский в комфортной аутентичной среде. Мой девиз:
+          <span class="emphasis">It is personal.</span>
+        </p>
+      </article>
+
+      <aside class="panel" id="format">
+        <div class="section-title-row">
+          <h2 class="section-title">Формат работы</h2>
+          <div class="section-chip">что мы можем делать вместе</div>
+        </div>
+        <ul class="list-soft">
+          <li>Общий английский для взрослых: разговор, грамматика, уверенность в реальных ситуациях.</li>
+          <li>Английский для специальных целей (ESP): медицина, бизнес, менеджмент.</li>
+          <li>Поддержка в подготовке к конференциям, выступлениям, учёбе и работе.</li>
+          <li>Онлайн-занятия 1:1 из любого города и часового пояса.</li>
+        </ul>
+        <div class="badge-row">
+          <span>6+ лет преподавания</span>
+          <span>TESOL &amp; конференции</span>
+          <span>Опыт в языковых школах</span>
+          <span>Педагогический менеджмент</span>
+        </div>
+        <div class="contacts">
+          <div><strong>Город:</strong> Курган</div>
+          <div>
+            <strong>Телефон:</strong>
+            <a href="tel:+79122771736">+7&nbsp;912&nbsp;277&nbsp;17&nbsp;36</a>
+          </div>
+          <div>
+            <strong>ВКонтакте:</strong>
+            <a href="https://vk.com/milochkamari" target="_blank" rel="noopener noreferrer">vk.com/milochkamari</a>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- ПРАЙС-ЛИСТ -->
+    <section class="panel section-pricing" id="pricing">
+      <div class="section-title-row">
+        <h2 class="section-title">Прайс-лист</h2>
+        <div class="section-chip">индивидуальные занятия</div>
       </div>
-    </header>
+      <p>
+        Оплата производится за каждое занятие заранее. Действуют скидки при оплате пакета из 8 занятий — об этом можно
+        спросить в сообщениях.
+      </p>
 
-    <main>
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-text">
-          <div class="hero-kicker">Рада, что ты здесь</div>
-          <h1 id="hero-title" class="hero-title">
-            Привет! Я <span class="hero-highlight">Мария</span> — преподаватель общего английского и английского для
-            специальных целей для взрослых.
-          </h1>
-          <p class="hero-subtitle">
-            Помогаю взрослым заговорить по-английски в комфортной, аутентичной среде — без учебникового пафоса, но с
-            системной опорой на твои реальные цели.
-          </p>
-          <div class="hero-tags">
-            <span>General English</span>
-            <span>English for Specific Purposes</span>
-            <span>Онлайн-формат с 2023</span>
+      <div class="product-grid">
+        <!-- Базовый курс 60 -->
+        <article class="product-card" data-modal-id="modal-basic-60">
+          <div class="product-ribbon">Взрослые · общий курс</div>
+          <div class="product-image-frame">
+            <img src="img/basic-60-1.jpg" alt="Базовый курс английского, 60 минут" />
           </div>
-          <div class="hero-actions">
-            <a href="#contact" class="btn-primary">
-              <span>Оставить заявку</span> →
-            </a>
-            <div class="hero-note">или пролистай ниже, чтобы познакомиться поближе</div>
+          <h3 class="product-title">Базовый курс · 60 минут</h3>
+          <p class="product-desc">
+            Общее развитие языковых навыков: говорение, чтение, письмо, аудирование. Удобный темп и опора на твой опыт.
+          </p>
+          <div class="product-price">Стоимость: <span>1500 ₽ / занятие</span></div>
+          <div class="product-actions">
+            <button class="btn-comic" data-open-modal="modal-basic-60">Подробнее</button>
           </div>
-        </div>
-
-        <div class="hero-photo-wrap">
-          <div class="hero-photo-card">
-            <!-- Фото Марии. В онлайн-версии Canvas путь уже настроен; 
-                 для публикации на хостинге замени src на свою картинку. -->
-            <img class="hero-photo" src="photo.jpg" alt="Мария, преподаватель английского" />
-            <div class="photo-badge">
-              <span>✨</span>
-              <div>
-                6+ лет преподавания<br />
-                It is personal.
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="about-grid" id="about">
-        <article class="section">
-          <div class="section-title-row">
-            <h2 class="section-title">Немного обо мне</h2>
-            <div class="section-chip">Кто я за фрукт?</div>
-          </div>
-          <p>
-            Рада приветствовать тебя на этой страничке. Меня зовут Мария, я преподаватель общего английского и английского
-            для специальных целей для взрослых. Если ты попал на эту страничку, возможно, тебя заинтересовало что-то из
-            предложенных мною постов. Расскажу, что я за фрукт.
-          </p>
-          <p>
-            Окончила Уральский федеральный университет имени Бориса Ельцина в 2019 году (специализация
-            романо-германская филология, читай: английский и английская литература), отучилась курс магистратуры в РГПУ
-            им. А.И. Герцена (2020–2021 гг.), в данный момент обучаюсь в КГУ (направление «Педагогический менеджмент»).
-          </p>
-          <p>
-            Преподаю английский с 2018 года (уже 6 лет, ого) взрослым и детям. Имею опыт преподавания в различных
-            языковых школах в г. Санкт-Петербург, Екатеринбург. С 2023 года полностью перешла в онлайн-формат.
-          </p>
-          <p>
-            Неоднократно проходила курсы повышения квалификации по профилю (TESOL), участвовала в качестве слушателя и
-            спикера в региональных и международных конференциях, была ведущим методистом сети языковых школ, а также
-            академическим директором в лингвистическом центре. В данный момент я просто преподаватель английского, который
-            искренне наслаждается своей работой.
-          </p>
-          <p>
-            Стремлюсь научить своих студентов понимать и любить английский в комфортной аутентичной среде. Мой девиз:
-            <span class="emphasis">It is personal.</span>
-          </p>
-          <p>
-            Захотели поучиться со мной? Оставьте заявку выше :) Или сразу заполните форму ниже — я свяжусь с вами в
-            ближайшее время.
-          </p>
         </article>
 
-        <aside class="section">
-          <div class="section-title-row">
-            <h2 class="section-title">Формат и специализация</h2>
-            <div class="section-chip">Что мы можем делать вместе</div>
+        <!-- Базовый курс 90 -->
+        <article class="product-card" data-modal-id="modal-basic-90">
+          <div class="product-ribbon">Интенсив</div>
+          <div class="product-image-frame">
+            <img src="img/basic-90-1.jpg" alt="Базовый курс английского, 90 минут" />
           </div>
-          <ul class="list-soft">
-            <li>Общий английский для взрослых: разговор, грамматика, уверенность в реальных ситуациях.</li>
-            <li>Английский для специальных целей (ESP) — для медицинской сферы и не только.</li>
-            <li>Поддержка в подготовке к конференциям, выступлениям, учебе и работе.</li>
-            <li>Онлайн-занятия 1:1 из любого города и часового пояса.</li>
-          </ul>
-          <div class="badge-row">
-            <span>6+ лет преподавания</span>
-            <span>TESOL &amp; конференции</span>
-            <span>Опыт в языковых школах</span>
-            <span>Педагогический менеджмент</span>
+          <h3 class="product-title">Базовый курс · 90 минут</h3>
+          <p class="product-desc">
+            Углублённая работа: больше разговорной практики, больше времени на проработку сложных тем и материалов.
+          </p>
+          <div class="product-price">Стоимость: <span>2000 ₽ / занятие</span></div>
+          <div class="product-actions">
+            <button class="btn-comic" data-open-modal="modal-basic-90">Подробнее</button>
           </div>
+        </article>
 
-          <div class="contacts">
-            <div><strong>Город:</strong> Курган</div>
-            <div>
-              <strong>Телефон:</strong>
-              <a href="tel:+79122771736">+7&nbsp;912&nbsp;277&nbsp;17&nbsp;36</a>
-            </div>
-            <div>
-              <strong>ВКонтакте:</strong>
-              <a href="https://vk.com/milochkamari" target="_blank" rel="noopener noreferrer">vk.com/milochkamari</a>
-            </div>
+        <!-- ESP 60 -->
+        <article class="product-card" data-modal-id="modal-esp-60">
+          <div class="product-ribbon">ESP · медицина/бизнес</div>
+          <div class="product-image-frame">
+            <img src="img/esp-60-1.jpg" alt="Английский для специальных целей, 60 минут" />
           </div>
-        </aside>
-      </section>
+          <h3 class="product-title">Английский для специальных целей · 60 минут</h3>
+          <p class="product-desc">
+            Медицина, бизнес, менеджмент: работа с профильной лексикой, кейсами и типичными коммуникативными ситуациями.
+          </p>
+          <div class="product-price">Стоимость: <span>2000 ₽ / занятие</span></div>
+          <div class="product-actions">
+            <button class="btn-comic" data-open-modal="modal-esp-60">Подробнее</button>
+          </div>
+        </article>
 
-      <section class="section contact-section" id="contact">
-        <div class="section-title-row">
-          <h2 class="section-title">Оставить заявку на обучение</h2>
-          <div class="section-chip">связаться со мной</div>
+        <!-- ESP 90 -->
+        <article class="product-card" data-modal-id="modal-esp-90">
+          <div class="product-ribbon">ESP · продвинутый уровень</div>
+          <div class="product-image-frame">
+            <img src="img/esp-90-1.jpg" alt="Английский для специальных целей, 90 минут" />
+          </div>
+          <h3 class="product-title">Английский для специальных целей · 90 минут</h3>
+          <p class="product-desc">
+            Для тех, кому нужно больше практики: конференции, презентации, международное общение и сложные кейсы.
+          </p>
+          <div class="product-price">Стоимость: <span>2500 ₽ / занятие</span></div>
+          <div class="product-actions">
+            <button class="btn-comic" data-open-modal="modal-esp-90">Подробнее</button>
+          </div>
+        </article>
+
+        <!-- Дети 6+ -->
+        <article class="product-card" data-modal-id="modal-kids-6">
+          <div class="product-ribbon">Дети от 6 лет</div>
+          <div class="product-image-frame">
+            <img src="img/kids-6-1.jpg" alt="Английский для детей от 6 лет" />
+          </div>
+          <h3 class="product-title">Английский для детей 6+ · 45 минут</h3>
+          <p class="product-desc">
+            Игра, движение, истории и первые фразы по-английски — в безопасной и поддерживающей атмосфере.
+          </p>
+          <div class="product-price">Стоимость: <span>1000 ₽ / занятие</span></div>
+          <div class="product-actions">
+            <button class="btn-comic" data-open-modal="modal-kids-6">Подробнее</button>
+          </div>
+        </article>
+
+        <!-- Дети 11+ -->
+        <article class="product-card" data-modal-id="modal-kids-11">
+          <div class="product-ribbon">Подростки 11+</div>
+          <div class="product-image-frame">
+            <img src="img/kids-11-1.jpg" alt="Английский для детей от 11 лет" />
+          </div>
+          <h3 class="product-title">Английский для детей 11+ · 60 минут</h3>
+          <p class="product-desc">
+            Поддержка школьной программы + живой современный английский, который подростки действительно используют.
+          </p>
+          <div class="product-price">Стоимость: <span>1500 ₽ / занятие</span></div>
+          <div class="product-actions">
+            <button class="btn-comic" data-open-modal="modal-kids-11">Подробнее</button>
+          </div>
+        </article>
+
+        <!-- Разговорный клуб 60 -->
+        <article class="product-card" data-modal-id="modal-club-60">
+          <div class="product-ribbon">Разговорный клуб</div>
+          <div class="product-image-frame">
+            <img src="img/club-60-1.jpg" alt="Разговорный клуб, 60 минут" />
+          </div>
+          <h3 class="product-title">Разговорный клуб · 60 минут</h3>
+          <p class="product-desc">
+            Тематические встречи с акцентом на разговор: кино, книги, работа, путешествия и то, чем живёшь именно ты.
+          </p>
+          <div class="product-price">Стоимость: <span>1200 ₽ / занятие</span></div>
+          <div class="product-actions">
+            <button class="btn-comic" data-open-modal="modal-club-60">Подробнее</button>
+          </div>
+        </article>
+
+        <!-- Разговорный клуб 90 -->
+        <article class="product-card" data-modal-id="modal-club-90">
+          <div class="product-ribbon">Разговорный клуб · интенсив</div>
+          <div class="product-image-frame">
+            <img src="img/club-90-1.jpg" alt="Разговорный клуб, 90 минут" />
+          </div>
+          <h3 class="product-title">Разговорный клуб · 90 минут</h3>
+          <p class="product-desc">
+            Больше времени на дискуссии, игры и разговорные задачи — для тех, кто хочет «раскачать» речь по максимуму.
+          </p>
+          <div class="product-price">Стоимость: <span>1600 ₽ / занятие</span></div>
+          <div class="product-actions">
+            <button class="btn-comic" data-open-modal="modal-club-90">Подробнее</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- КОНТАКТЫ И ФОРМА -->
+    <section class="panel" id="contact">
+      <div class="section-title-row">
+        <h2 class="section-title">Связаться со мной</h2>
+        <div class="section-chip">заявка на обучение</div>
+      </div>
+      <div class="contact-layout">
+        <div>
+          <p>
+            Заполни короткую форму: расскажи пару слов о себе и своих целях — и я напишу тебе на почту, чтобы обсудить
+            формат, расписание и подходящие варианты занятий.
+          </p>
+          <p>
+            Можно также сразу перейти в личные сообщения ВК по кнопке ниже, если так удобнее.
+          </p>
+          <div style="margin-top: 14px;">
+            <a class="btn-comic" href="https://vk.com/milochkamari" target="_blank" rel="noopener noreferrer">
+              Написать в VK
+            </a>
+          </div>
         </div>
-        <div class="contact-layout">
-          <div class="contact-text">
-            <p>
-              Заполни короткую форму: пару строк о себе и своих целях — и я напишу тебе на почту, чтобы обсудить формат,
-              расписание и подходящие варианты занятий.
-            </p>
-            <p>
-              Обращение к мне уже шаг в сторону английского, который наконец-то <span class="emphasis">работает на тебя</span>.
-            </p>
+
+        <form
+          class="contact-form"
+          action="mailto:maria.biserova9@gmail.com"
+          method="post"
+          enctype="text/plain"
+        >
+          <!-- Для полноценной отправки без почтового клиента понадобится серверная часть. -->
+          <div class="field">
+            <label for="name">Как тебя зовут?</label>
+            <input type="text" id="name" name="Имя" placeholder="Например, Анна" required />
           </div>
 
-          <form
-            class="contact-form"
-            action="mailto:maria.biserova9@gmail.com"
-            method="post"
-            enctype="text/plain"
-          >
-            <!-- ВАЖНО: для полноценной отправки заявок без почтового клиента понадобится серверная часть. 
-                 Сейчас форма открывает почтовое приложение с готовым письмом на указанный адрес. -->
-            <div class="field">
-              <label for="name">Как тебя зовут?</label>
-              <input type="text" id="name" name="Имя" placeholder="Например, Анна" required />
-            </div>
+          <div class="field">
+            <label for="email">Электронная почта</label>
+            <input
+              type="email"
+              id="email"
+              name="Email"
+              placeholder="name@example.com"
+              required
+            />
+          </div>
 
-            <div class="field">
-              <label for="email">Электронная почта</label>
-              <input
-                type="email"
-                id="email"
-                name="Email"
-                placeholder="name@example.com"
-                required
-              />
-            </div>
+          <div class="field">
+            <label for="format">Желаемый формат занятий</label>
+            <select id="format" name="Формат">
+              <option value="Общий английский (взрослый)">Общий английский (взрослый)</option>
+              <option value="Английский для специальных целей (ESP)">Английский для специальных целей (ESP)</option>
+              <option value="Английский для детей">Английский для детей</option>
+              <option value="Разговорный клуб">Разговорный клуб</option>
+              <option value="Пока не знаю, нужна консультация">Пока не знаю, нужна консультация</option>
+            </select>
+          </div>
 
-            <div class="field">
-              <label for="format">Желаемый формат занятий</label>
-              <select id="format" name="Формат">
-                <option value="Общий английский (взрослый)">Общий английский (взрослый)</option>
-                <option value="Английский для специальных целей (ESP)">Английский для специальных целей (ESP)</option>
-                <option value="Смешанный формат">Смешанный формат</option>
-                <option value="Пока не знаю, нужна консультация">Пока не знаю, нужна консультация</option>
-              </select>
-            </div>
+          <div class="field">
+            <label for="message">Кратко о целях и запросе</label>
+            <textarea
+              id="message"
+              name="Сообщение"
+              placeholder="Например: хочу перестать бояться говорить с иностранными коллегами / нужна поддержка в учёбе / готовлюсь к конференции и т.д."
+              required
+            ></textarea>
+          </div>
 
-            <div class="field">
-              <label for="message">Кратко о целях и запросе</label>
-              <textarea
-                id="message"
-                name="Сообщение"
-                placeholder="Например: хочу перестать бояться говорить с иностранными коллегами / нужна поддержка в учёбе / готовлюсь к конференции и т.д."
-                required
-              ></textarea>
-            </div>
+          <div class="field">
+            <label for="contact-way">Где удобнее всего связаться с тобой?</label>
+            <input
+              type="text"
+              id="contact-way"
+              name="Контакт"
+              placeholder="Телеграм, ВК, почта — то, что ты реально читаешь"
+            />
+          </div>
 
-            <div class="field">
-              <label for="contact-way">Где удобнее всего связаться с тобой?</label>
-              <input
-                type="text"
-                id="contact-way"
-                name="Контакт"
-                placeholder="Телеграм, ВК, почта — то, что ты реально читаешь"
-              />
-            </div>
+          <p class="form-note">
+            Нажимая на кнопку, ты создаёшь письмо на адрес <strong>maria.biserova9@gmail.com</strong> — останется только
+            отправить его.
+          </p>
 
-            <p class="form-note">
-              Нажимая на кнопку, ты создаёшь письмо на адрес <strong>maria.biserova9@gmail.com</strong> — останется только
-              отправить его.
-            </p>
-
-            <button type="submit" class="btn-primary btn-submit">
-              <span>Отправить заявку</span> →
-            </button>
-          </form>
-        </div>
-      </section>
-    </main>
+          <button type="submit" class="btn-comic primary" style="margin-top: 4px;">
+            Отправить заявку
+          </button>
+        </form>
+      </div>
+    </section>
 
     <footer>
       Mary teaches English — it is personal · Онлайн-репетитор английского языка
     </footer>
   </div>
+
+  <!-- МОДАЛЬНЫЕ ОКНА ДЛЯ КАРТОЧЕК -->
+  <div class="modal-overlay" id="modal-basic-60" data-modal>
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">Базовый курс · 60 минут</h3>
+        <button class="modal-close" data-close-modal>&times;</button>
+      </div>
+      <div class="modal-grid">
+        <div class="modal-carousel" data-carousel>
+          <div class="carousel-track">
+            <div class="carousel-slide is-active">
+              <img src="img/basic-60-1.jpg" alt="Базовый курс английского, 60 минут" />
+            </div>
+            <div class="carousel-slide">
+              <img src="img/basic-60-2.jpg" alt="Материалы и занятия базового курса" />
+            </div>
+          </div>
+          <button class="carousel-control prev" data-carousel-prev>&lsaquo;</button>
+          <button class="carousel-control next" data-carousel-next>&rsaquo;</button>
+        </div>
+        <div class="modal-content">
+          <p>
+            Курс для тех, кто хочет системно подтянуть общий английский: обновить грамматику, пополнить словарный запас и
+            начать уверенно говорить в повседневных ситуациях.
+          </p>
+          <p>
+            На занятиях много практики: диалоги, тексты, мини-проекты и упражнения, завязанные на твоей реальной жизни.
+          </p>
+          <p class="modal-price">Стоимость: <span>1500 ₽ / занятие (60 минут)</span></p>
+          <div class="modal-footer">
+            <a
+              class="btn-comic primary"
+              href="https://vk.com/milochkamari"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Купить и обсудить расписание
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modal-basic-90" data-modal>
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">Базовый курс · 90 минут</h3>
+        <button class="modal-close" data-close-modal>&times;</button>
+      </div>
+      <div class="modal-grid">
+        <div class="modal-carousel" data-carousel>
+          <div class="carousel-track">
+            <div class="carousel-slide is-active">
+              <img src="img/basic-90-1.jpg" alt="Базовый курс английского, 90 минут" />
+            </div>
+            <div class="carousel-slide">
+              <img src="img/basic-90-2.jpg" alt="Работа с текстами и проектами на продвинутом курсе" />
+            </div>
+          </div>
+          <button class="carousel-control prev" data-carousel-prev>&lsaquo;</button>
+          <button class="carousel-control next" data-carousel-next>&rsaquo;</button>
+        </div>
+        <div class="modal-content">
+          <p>
+            Подойдёт, если хочется погружаться в язык основательнее: больше сложных текстов, разговорных задач и
+            отработки нюансов.
+          </p>
+          <p>
+            Формат 90 минут комфортен для тех, кто привык думать и обсуждать — без спешки и с нормальным временем на
+            обратную связь.
+          </p>
+          <p class="modal-price">Стоимость: <span>2000 ₽ / занятие (90 минут)</span></p>
+          <div class="modal-footer">
+            <a
+              class="btn-comic primary"
+              href="https://vk.com/milochkamari"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Купить и обсудить расписание
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modal-esp-60" data-modal>
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">Английский для специальных целей · 60 минут</h3>
+        <button class="modal-close" data-close-modal>&times;</button>
+      </div>
+      <div class="modal-grid">
+        <div class="modal-carousel" data-carousel>
+          <div class="carousel-track">
+            <div class="carousel-slide is-active">
+              <img src="img/esp-60-1.jpg" alt="ESP: английский для медицины и бизнеса" />
+            </div>
+            <div class="carousel-slide">
+              <img src="img/esp-60-2.jpg" alt="Работа с кейсами и презентациями" />
+            </div>
+          </div>
+          <button class="carousel-control prev" data-carousel-prev>&lsaquo;</button>
+          <button class="carousel-control next" data-carousel-next>&rsaquo;</button>
+        </div>
+        <div class="modal-content">
+          <p>
+            Для специалистов, которым важно уверенно чувствовать себя в профессиональной коммуникации: встречи,
+            переписка, отчёты, конференции.
+          </p>
+          <p>
+            Материалы подбираются под твою сферу: медицина, бизнес, управление и другие направления, где нужен точный и
+            живой английский.
+          </p>
+          <p class="modal-price">Стоимость: <span>2000 ₽ / занятие (60 минут)</span></p>
+          <div class="modal-footer">
+            <a
+              class="btn-comic primary"
+              href="https://vk.com/milochkamari"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Купить и обсудить расписание
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modal-esp-90" data-modal>
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">Английский для специальных целей · 90 минут</h3>
+        <button class="modal-close" data-close-modal>&times;</button>
+      </div>
+      <div class="modal-grid">
+        <div class="modal-carousel" data-carousel>
+          <div class="carousel-track">
+            <div class="carousel-slide is-active">
+              <img src="img/esp-90-1.jpg" alt="Углублённый ESP-курс" />
+            </div>
+            <div class="carousel-slide">
+              <img src="img/esp-90-2.jpg" alt="Подготовка к выступлениям и конференциям" />
+            </div>
+          </div>
+          <button class="carousel-control prev" data-carousel-prev>&lsaquo;</button>
+          <button class="carousel-control next" data-carousel-next>&rsaquo;</button>
+        </div>
+        <div class="modal-content">
+          <p>
+            Для тех, кому нужен серьёзный профессиональный английский: презентации, сложные переговоры, публикации и
+            подготовка к международным мероприятиям.
+          </p>
+          <p>
+            Время используем максимально: моделируем реальные ситуации, разбираем тексты и выстраиваем стратегию
+            развития навыков.
+          </p>
+          <p class="modal-price">Стоимость: <span>2500 ₽ / занятие (90 минут)</span></p>
+          <div class="modal-footer">
+            <a
+              class="btn-comic primary"
+              href="https://vk.com/milochkamari"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Купить и обсудить расписание
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modal-kids-6" data-modal>
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">Английский для детей 6+ · 45 минут</h3>
+        <button class="modal-close" data-close-modal>&times;</button>
+      </div>
+      <div class="modal-grid">
+        <div class="modal-carousel" data-carousel>
+          <div class="carousel-track">
+            <div class="carousel-slide is-active">
+              <img src="img/kids-6-1.jpg" alt="Игровые занятия для детей 6+" />
+            </div>
+            <div class="carousel-slide">
+              <img src="img/kids-6-2.jpg" alt="Карточки и игры для младших школьников" />
+            </div>
+          </div>
+          <button class="carousel-control prev" data-carousel-prev>&lsaquo;</button>
+          <button class="carousel-control next" data-carousel-next>&rsaquo;</button>
+        </div>
+        <div class="modal-content">
+          <p>
+            Бережный старт в английском: игры, картинки, песни и короткие диалоги. Цель — чтобы ребёнок не боялся языка и
+            ждал занятия.
+          </p>
+          <p class="modal-price">Стоимость: <span>1000 ₽ / занятие (45 минут)</span></p>
+          <div class="modal-footer">
+            <a
+              class="btn-comic primary"
+              href="https://vk.com/milochkamari"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Купить и обсудить расписание
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modal-kids-11" data-modal>
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">Английский для детей 11+ · 60 минут</h3>
+        <button class="modal-close" data-close-modal>&times;</button>
+      </div>
+      <div class="modal-grid">
+        <div class="modal-carousel" data-carousel>
+          <div class="carousel-track">
+            <div class="carousel-slide is-active">
+              <img src="img/kids-11-1.jpg" alt="Английский для подростков" />
+            </div>
+            <div class="carousel-slide">
+              <img src="img/kids-11-2.jpg" alt="Современные материалы для подростков" />
+            </div>
+          </div>
+          <button class="carousel-control prev" data-carousel-prev>&lsaquo;</button>
+          <button class="carousel-control next" data-carousel-next>&rsaquo;</button>
+        </div>
+        <div class="modal-content">
+          <p>
+            Поддержка школьной программы + современный контент: видео, статьи, обсуждение тем, которые действительно
+            интересны подростку.
+          </p>
+          <p class="modal-price">Стоимость: <span>1500 ₽ / занятие (60 минут)</span></p>
+          <div class="modal-footer">
+            <a
+              class="btn-comic primary"
+              href="https://vk.com/milochkamari"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Купить и обсудить расписание
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modal-club-60" data-modal>
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">Разговорный клуб · 60 минут</h3>
+        <button class="modal-close" data-close-modal>&times;</button>
+      </div>
+      <div class="modal-grid">
+        <div class="modal-carousel" data-carousel>
+          <div class="carousel-track">
+            <div class="carousel-slide is-active">
+              <img src="img/club-60-1.jpg" alt="Разговорный клуб по английскому" />
+            </div>
+            <div class="carousel-slide">
+              <img src="img/club-60-2.jpg" alt="Обсуждение фильмов и книг на английском" />
+            </div>
+          </div>
+          <button class="carousel-control prev" data-carousel-prev>&lsaquo;</button>
+          <button class="carousel-control next" data-carousel-next>&rsaquo;</button>
+        </div>
+        <div class="modal-content">
+          <p>
+            Для тех, кому важно говорить, а не только «учить язык». Мини-группа или индивидуальный формат — по договорённости.
+          </p>
+          <p class="modal-price">Стоимость: <span>1200 ₽ / занятие (60 минут)</span></p>
+          <div class="modal-footer">
+            <a
+              class="btn-comic primary"
+              href="https://vk.com/milochkamari"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Купить и обсудить расписание
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modal-club-90" data-modal>
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">Разговорный клуб · 90 минут</h3>
+        <button class="modal-close" data-close-modal>&times;</button>
+      </div>
+      <div class="modal-grid">
+        <div class="modal-carousel" data-carousel>
+          <div class="carousel-track">
+            <div class="carousel-slide is-active">
+              <img src="img/club-90-1.jpg" alt="Интенсивный разговорный клуб" />
+            </div>
+            <div class="carousel-slide">
+              <img src="img/club-90-2.jpg" alt="Дискуссии и разговорные игры" />
+            </div>
+          </div>
+          <button class="carousel-control prev" data-carousel-prev>&lsaquo;</button>
+          <button class="carousel-control next" data-carousel-next>&rsaquo;</button>
+        </div>
+        <div class="modal-content">
+          <p>
+            Формат для любителей поговорить: больше времени на обсуждения, игры и живые сценарии общения.
+          </p>
+          <p class="modal-price">Стоимость: <span>1600 ₽ / занятие (90 минут)</span></p>
+          <div class="modal-footer">
+            <a
+              class="btn-comic primary"
+              href="https://vk.com/milochkamari"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Купить и обсудить расписание
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Открытие модальных окон
+    document.querySelectorAll('[data-open-modal]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var id = btn.getAttribute('data-open-modal');
+        var modal = document.getElementById(id);
+        if (modal) {
+          modal.classList.add('is-open');
+        }
+      });
+    });
+
+    // Закрытие модалок по кнопке и клику по фону
+    document.querySelectorAll('[data-modal]').forEach(function (overlay) {
+      overlay.addEventListener('click', function (e) {
+        if (e.target === overlay) {
+          overlay.classList.remove('is-open');
+        }
+      });
+    });
+
+    document.querySelectorAll('[data-close-modal]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var overlay = btn.closest('[data-modal]');
+        if (overlay) overlay.classList.remove('is-open');
+      });
+    });
+
+    // Простая карусель для каждой модалки
+    document.querySelectorAll('[data-carousel]').forEach(function (carousel) {
+      var slides = carousel.querySelectorAll('.carousel-slide');
+      var track = carousel.querySelector('.carousel-track');
+      var current = 0;
+
+      function updateSlides() {
+        slides.forEach(function (slide, index) {
+          slide.classList.toggle('is-active', index === current);
+        });
+        if (track) {
+          track.style.transform = 'translateX(' + -current * 100 + '%)';
+        }
+      }
+
+      var prevBtn = carousel.querySelector('[data-carousel-prev]');
+      var nextBtn = carousel.querySelector('[data-carousel-next]');
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          current = (current - 1 + slides.length) % slides.length;
+          updateSlides();
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          current = (current + 1) % slides.length;
+          updateSlides();
+        });
+      }
+
+      updateSlides();
+    });
+  </script>
 </body>
 </html>
