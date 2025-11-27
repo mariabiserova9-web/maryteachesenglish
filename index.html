@@ -387,6 +387,7 @@
       flex-direction: column;
       gap: 8px;
       position: relative;
+      height: 100%;
     }
 
     .product-ribbon {
@@ -404,8 +405,11 @@
       border-radius: 14px;
       border: var(--border-bold);
       overflow: hidden;
-      background: #f4f4f4;
-      aspect-ratio: 4 / 3;
+      background: #fdfdfd;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       margin-bottom: 6px;
     }
 
@@ -798,9 +802,10 @@
 
       <div class="product-grid">
         <!-- Базовый курс 60 -->
-        $1
-          <div class="product-image-frame" style="display:flex;align-items:center;justify-content:center;background:#fffdf7;">
-            <!-- Иконка: книжка для базового курса -->
+        <article class="product-card">
+          <div class="product-ribbon">Взрослые · общий курс</div>
+          <div class="product-image-frame">
+            <!-- Иконка: книжка -->
             <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
               <path d="M5 4h11a3 3 0 0 1 3 3v11H8a3 3 0 0 0-3 3V4z" fill="#ffeab0"></path>
               <path d="M9 4v13"></path>
@@ -818,9 +823,10 @@
         </article>
 
         <!-- Базовый курс 90 -->
-        $1
-          <div class="product-image-frame" style="display:flex;align-items:center;justify-content:center;background:#fffdf7;">
-            <!-- Иконка: стопка книг для продвинутого базового курса -->
+        <article class="product-card">
+          <div class="product-ribbon">Интенсив</div>
+          <div class="product-image-frame">
+            <!-- Иконка: стопка книг -->
             <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
               <rect x="4" y="5" width="14" height="4" rx="1" ry="1" fill="#ffeab0"></rect>
               <rect x="6" y="10" width="14" height="4" rx="1" ry="1" fill="#ffd76a"></rect>
@@ -838,9 +844,10 @@
         </article>
 
         <!-- ESP 60 -->
-        $1
-          <div class="product-image-frame" style="display:flex;align-items:center;justify-content:center;background:#f3f9ff;">
-            <!-- Иконка: мозг/лампочка для ESP 60 -->
+        <article class="product-card">
+          <div class="product-ribbon">ESP · медицина/бизнес</div>
+          <div class="product-image-frame">
+            <!-- Иконка: мозг-лампочка -->
             <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
               <path d="M9 3a3 3 0 0 0-3 3v4a4 4 0 0 0 4 4v2h4v-2a4 4 0 0 0 4-4V6a3 3 0 0 0-3-3H9z" fill="#bfe3ff"></path>
               <path d="M10 19h4"></path>
@@ -858,9 +865,10 @@
         </article>
 
         <!-- ESP 90 -->
-        $1
-          <div class="product-image-frame" style="display:flex;align-items:center;justify-content:center;background:#f3f9ff;">
-            <!-- Иконка: медицинский крест и диаграмма для ESP 90 -->
+        <article class="product-card">
+          <div class="product-ribbon">ESP · продвинутый уровень</div>
+          <div class="product-image-frame">
+            <!-- Иконка: крест + диаграмма -->
             <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
               <rect x="3" y="5" width="10" height="10" rx="2" ry="2" fill="#d2f0ff"></rect>
               <path d="M8 7v6"></path>
@@ -879,9 +887,10 @@
         </article>
 
         <!-- Дети 6+ -->
-        $1
-          <div class="product-image-frame" style="display:flex;align-items:center;justify-content:center;background:#fffefb;">
-            <!-- Иконка: карандаш и звезда для детей 6+ -->
+        <article class="product-card">
+          <div class="product-ribbon">Дети от 6 лет</div>
+          <div class="product-image-frame">
+            <!-- Иконка: карандаш + звезда -->
             <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
               <path d="M4 18l3.5-1L18 6.5 15.5 4 5 15.5 4 18z" fill="#ffe0aa"></path>
               <path d="M12 5.5L14.5 8"></path>
@@ -899,9 +908,10 @@
         </article>
 
         <!-- Дети 11+ -->
-        $1
-          <div class="product-image-frame" style="display:flex;align-items:center;justify-content:center;background:#fffefb;">
-            <!-- Иконка: открытая тетрадь и звёздочка для подростков 11+ -->
+        <article class="product-card">
+          <div class="product-ribbon">Подростки 11+</div>
+          <div class="product-image-frame">
+            <!-- Иконка: тетрадь -->
             <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
               <path d="M5 6h6v11H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" fill="#fff1c4"></path>
               <path d="M13 6h6a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-6V6z" fill="#ffeab0"></path>
@@ -921,9 +931,10 @@
         </article>
 
         <!-- Разговорный клуб 60 -->
-        $1
-          <div class="product-image-frame" style="display:flex;align-items:center;justify-content:center;background:#fff5fb;">
-            <!-- Иконка: два speech bubbles для разговорного клуба 60 -->
+        <article class="product-card">
+          <div class="product-ribbon">Разговорный клуб</div>
+          <div class="product-image-frame">
+            <!-- Иконка: два speech bubbles -->
             <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
               <path d="M5 6h9a3 3 0 0 1 3 3v2a3 3 0 0 1-3 3H9l-3 3v-3H5a3 3 0 0 1-3-3V9a3 3 0 0 1 3-3z" fill="#ffd6ea"></path>
               <path d="M13 7h5a3 3 0 0 1 3 3v2a3 3 0 0 1-3 3h-1" ></path>
@@ -940,9 +951,10 @@
         </article>
 
         <!-- Разговорный клуб 90 -->
-        $1
-          <div class="product-image-frame" style="display:flex;align-items:center;justify-content:center;background:#fff5fb;">
-            <!-- Иконка: три speech bubbles для разговорного клуба 90 -->
+        <article class="product-card">
+          <div class="product-ribbon">Разговорный клуб · интенсив</div>
+          <div class="product-image-frame">
+            <!-- Иконка: три speech bubbles -->
             <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
               <path d="M4 7h8a3 3 0 0 1 3 3v1a3 3 0 0 1-3 3H8l-3 3v-3H4a3 3 0 0 1-3-3v-1a3 3 0 0 1 3-3z" fill="#ffd6ea"></path>
               <path d="M13 6h5a3 3 0 0 1 3 3v1a3 3 0 0 1-3 3h-1l-2 2" fill="#ffc4e0"></path>
