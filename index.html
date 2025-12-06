@@ -616,8 +616,8 @@
     }
 
     .fortune-wheel {
-      width: 220px;
-      height: 220px;
+      width: 260px;
+      height: 260px;
       border-radius: 50%;
       border: var(--border-bold);
       box-shadow: var(--shadow-comic);
@@ -636,20 +636,23 @@
 
     .fortune-label {
       position: absolute;
-      width: 50%;
+      width: 70%;          /* чуть больше “луч” для текста */
       left: 50%;
       top: 50%;
       transform-origin: 0% 50%;
       font-size: 11px;
-      padding-right: 6px;
+      padding-right: 8px;
       text-align: right;
+      white-space: nowrap; /* не даём тексту ломаться на несколько строк */
     }
 
-    .fortune-label-1 { transform: rotate(0deg) translateX(-50%); }
-    .fortune-label-2 { transform: rotate(72deg) translateX(-50%); }
-    .fortune-label-3 { transform: rotate(144deg) translateX(-50%); }
-    .fortune-label-4 { transform: rotate(216deg) translateX(-50%); }
-    .fortune-label-5 { transform: rotate(288deg) translateX(-50%); }
+    /* центры пяти секторов по кругу */
+    .fortune-label-1 { transform: rotate(-36deg) translateX(-50%); }
+    .fortune-label-2 { transform: rotate(36deg) translateX(-50%); }
+    .fortune-label-3 { transform: rotate(108deg) translateX(-50%); }
+    .fortune-label-4 { transform: rotate(180deg) translateX(-50%); }
+    .fortune-label-5 { transform: rotate(252deg) translateX(-50%); }
+
 
     .fortune-controls {
       display: grid;
