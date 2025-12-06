@@ -25,9 +25,6 @@
       --shadow-comic: 4px 4px 0 #111111;
       --radius-card: 18px;
       --nav-height: 64px;
-  --fortune-offset: -18deg;
-}
-
     }
 
     * {
@@ -587,7 +584,7 @@
       margin-top: 14px;
     }
 
-          /* ===== Колесо фортуны ===== */
+    /* ===== Колесо фортуны ===== */
     .fortune-panel {
       margin-top: 30px;
     }
@@ -632,9 +629,29 @@
         #d2c3ff 216deg 288deg,
         #ff9fb9 288deg 360deg
       );
+      position: relative;
       transition: transform 4s cubic-bezier(0.25, 0.8, 0.25, 1);
       overflow: hidden;
     }
+
+    .fortune-label {
+      position: absolute;
+      width: 50%;
+      left: 50%;
+      top: 50%;
+      transform-origin: 0% 50%;
+      font-size: 20px;
+      font-weight: 700;
+      padding-right: 8px;
+      text-align: right;
+    }
+
+    /* центры секторов: числа 1–5 */
+    .fortune-label-1 { transform: rotate(-36deg) translateX(-50%); }
+    .fortune-label-2 { transform: rotate(36deg) translateX(-50%); }
+    .fortune-label-3 { transform: rotate(108deg) translateX(-50%); }
+    .fortune-label-4 { transform: rotate(180deg) translateX(-50%); }
+    .fortune-label-5 { transform: rotate(252deg) translateX(-50%); }
 
     .fortune-controls {
       display: grid;
@@ -676,13 +693,6 @@
       box-shadow: none;
       background: #dddddd;
     }
-
-    @media (max-width: 880px) {
-      .fortune-layout {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
 
     /* ===== Контакты и форма ===== */
     .contact-layout {
@@ -1681,73 +1691,6 @@
         }, 4200);
       });
     })();
-        // Колесо фортуны: один запуск на браузер
-    (function () {
-      var wheel = document.getElementById('fortune-wheel');
-      var btn = document.getElementById('fortune-spin-btn');
-      var resultEl = document.getElementById('fortune-result');
-
-      if (!wheel || !btn || !resultEl) return;
-
-      // Описания призов без номеров — номер добавляем по индексу
-      var prizes = [
-        'скидка на первый месяц 10%',
-        'бесплатный урок',
-        'полезная ПДФка от меня',
-        'скидка 10% на курс',
-        'ААААААВТОМОБИЛЬ (и немного самоиронии)'
-      ];
-
-      var storageKey = 'mary_fortune_used_v2';
-      var saved = localStorage.getItem(storageKey);
-
-      if (saved) {
-        btn.disabled = true;
-        btn.textContent = 'Колесо уже использовано';
-        btn.classList.add('is-disabled');
-        resultEl.textContent = 'Ты уже запускал(а) колесо: ' + saved + ' 🎁';
-      }
-
-      var isSpinning = false;
-
-      btn.addEventListener('click', function () {
-        if (isSpinning) return;
-
-        if (localStorage.getItem(storageKey)) {
-          resultEl.textContent = 'Колесо можно запустить только один раз.';
-          btn.disabled = true;
-          btn.classList.add('is-disabled');
-          return;
-        }
-
-        isSpinning = true;
-
-        var segmentAngle = 360 / prizes.length;
-        var index = Math.floor(Math.random() * prizes.length);
-
-        // Немного случайности внутри сектора
-        var randomOffset = (Math.random() - 0.5) * (segmentAngle * 0.6);
-
-        // Поворачиваем диск так, чтобы нужный сектор оказался под стрелкой
-        var targetAngle =
-          360 * 4 + // несколько полных оборотов
-          (segmentAngle * index + segmentAngle / 2) +
-          randomOffset;
-
-        wheel.style.transform = 'rotate(' + targetAngle + 'deg)';
-
-        setTimeout(function () {
-          var prizeText = '№' + (index + 1) + ' — ' + prizes[index];
-          resultEl.textContent = 'Тебе выпало: ' + prizeText + ' 🎉';
-          localStorage.setItem(storageKey, prizeText);
-          btn.disabled = true;
-          btn.textContent = 'Колесо уже использовано';
-          btn.classList.add('is-disabled');
-          isSpinning = false;
-        }, 4200);
-      });
-    })();
-
   </script>
 </body>
 </html>
