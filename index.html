@@ -634,20 +634,19 @@
       overflow: hidden;
     }
 
-    /* короткие подписи ради читаемости */
     .fortune-label {
       position: absolute;
       width: 50%;
       left: 50%;
       top: 50%;
       transform-origin: 0% 50%;
-      font-size: 11px;
-      padding-right: 6px;
+      font-size: 20px;
+      font-weight: 700;
+      padding-right: 8px;
       text-align: right;
-      white-space: nowrap;
     }
 
-    /* центры секторов */
+    /* центры секторов: числа 1–5 */
     .fortune-label-1 { transform: rotate(-36deg) translateX(-50%); }
     .fortune-label-2 { transform: rotate(36deg) translateX(-50%); }
     .fortune-label-3 { transform: rotate(108deg) translateX(-50%); }
@@ -694,13 +693,6 @@
       box-shadow: none;
       background: #dddddd;
     }
-
-    @media (max-width: 880px) {
-      .fortune-layout {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
 
     /* ===== Контакты и форма ===== */
     .contact-layout {
@@ -829,7 +821,7 @@
         <div class="hero-tags">
           <span>General English</span>
           <span>English for Specific Purposes</span>
-          <span>Онлайн-формат с 2019 года</span>
+          <span>Онлайн-формат с 2023 года</span>
         </div>
         <a href="#contact" class="btn-comic primary">Оставить заявку</a>
         <div class="hero-note">Можно дочитать страницу до конца, а можно написать уже сейчас.</div>
@@ -1091,7 +1083,7 @@
       </div>
     </section>
 
-     <!-- КОЛЕСО ФОРТУНЫ -->
+    <!-- КОЛЕСО ФОРТУНЫ -->
     <section class="panel fortune-panel" id="fortune">
       <div class="section-title-row">
         <h2 class="section-title">Колесо бонусов</h2>
@@ -1106,12 +1098,11 @@
         <div class="fortune-wheel-wrap">
           <div class="fortune-pointer"></div>
           <div class="fortune-wheel" id="fortune-wheel">
-            <!-- короткие подписи, чтобы не съезжали -->
-            <div class="fortune-label fortune-label-1">Месяц −10%</div>
-            <div class="fortune-label fortune-label-2">Урок</div>
-            <div class="fortune-label fortune-label-3">PDF</div>
-            <div class="fortune-label fortune-label-4">Курс −10%</div>
-            <div class="fortune-label fortune-label-5">АВТО</div>
+            <div class="fortune-label fortune-label-1">1</div>
+            <div class="fortune-label fortune-label-2">2</div>
+            <div class="fortune-label fortune-label-3">3</div>
+            <div class="fortune-label fortune-label-4">4</div>
+            <div class="fortune-label fortune-label-5">5</div>
           </div>
         </div>
 
@@ -1121,15 +1112,14 @@
           </button>
           <p class="fortune-result" id="fortune-result"></p>
           <p class="fortune-note">
-            Результат можно будет зафиксировать в переписке — просто напиши, что тебе
-            выпало на колесе 💫
+            Результат можно будет зафиксировать в переписке — просто напиши, какой номер тебе выпал 💫
           </p>
           <ul class="fortune-legend">
-            <li><strong>Месяц −10%</strong> — скидка на первый месяц занятий.</li>
-            <li><strong>Урок</strong> — один бесплатный урок.</li>
-            <li><strong>PDF</strong> — полезная ПДФ-подборка от меня.</li>
-            <li><strong>Курс −10%</strong> — скидка 10% на курс.</li>
-            <li><strong>АВТО</strong> — просто мем, но тоже приятно 🙂</li>
+            <li><strong>1</strong> — скидка на первый месяц 10%.</li>
+            <li><strong>2</strong> — бесплатный урок.</li>
+            <li><strong>3</strong> — полезная ПДФка от меня.</li>
+            <li><strong>4</strong> — скидка 10% на курс.</li>
+            <li><strong>5</strong> — ААААААВТОМОБИЛЬ (и немного самоиронии).</li>
           </ul>
         </div>
       </div>
@@ -1229,6 +1219,9 @@
   </div>
 
   <!-- МОДАЛЬНЫЕ ОКНА ДЛЯ КАРТОЧЕК -->
+  <!-- (всё, что у тебя было, оставляю без изменений ниже) -->
+
+  <!-- Базовый 60 -->
   <div class="modal-overlay" id="modal-basic-60" data-modal>
     <div class="modal-dialog">
       <div class="modal-header">
@@ -1242,4 +1235,462 @@
               <img src="img/basic-60-1.jpg" alt="Базовый курс английского, 60 минут" />
             </div>
             <div class="carousel-slide">
-              <img src="img/basic-60-2.j
+              <img src="img/basic-60-2.jpg" alt="Материалы и занятия базового курса" />
+            </div>
+          </div>
+          <button class="carousel-control prev" data-carousel-prev>&lsaquo;</button>
+          <button class="carousel-control next" data-carousel-next>&rsaquo;</button>
+        </div>
+        <div class="modal-content">
+          <p>
+            Курс для тех, кто хочет системно подтянуть общий английский: обновить грамматику, пополнить словарный запас и
+            начать уверенно говорить в повседневных ситуациях.
+          </p>
+          <p>
+            На занятиях много практики: диалоги, тексты, мини-проекты и упражнения, завязанные на твоей реальной жизни.
+          </p>
+          <p class="modal-price">Стоимость: <span>1500 ₽ / занятие (60 минут)</span></p>
+          <div class="modal-footer">
+            <a
+              class="btn-comic primary"
+              href="https://vk.com/milochkamari"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Купить и обсудить расписание
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Базовый 90 -->
+  <div class="modal-overlay" id="modal-basic-90" data-modal>
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">Базовый курс · 90 минут</h3>
+        <button class="modal-close" data-close-modal>&times;</button>
+      </div>
+      <div class="modal-grid">
+        <div class="modal-carousel" data-carousel>
+          <div class="carousel-track">
+            <div class="carousel-slide is-active">
+              <img src="img/basic-90-1.jpg" alt="Базовый курс английского, 90 минут" />
+            </div>
+            <div class="carousel-slide">
+              <img src="img/basic-90-2.jpg" alt="Работа с текстами и проектами на продвинутом курсе" />
+            </div>
+          </div>
+          <button class="carousel-control prev" data-carousel-prev>&lsaquo;</button>
+          <button class="carousel-control next" data-carousel-next>&rsaquo;</button>
+        </div>
+        <div class="modal-content">
+          <p>
+            Подойдёт, если хочется погружаться в язык основательнее: больше сложных текстов, разговорных задач и
+            отработки нюансов.
+          </p>
+          <p>
+            Формат 90 минут комфортен для тех, кто привык думать и обсуждать — без спешки и с нормальным временем на
+            обратную связь.
+          </p>
+          <p class="modal-price">Стоимость: <span>2000 ₽ / занятие (90 минут)</span></p>
+          <div class="modal-footer">
+            <a
+              class="btn-comic primary"
+              href="https://vk.com/milochkamari"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Купить и обсудить расписание
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ESP 60 -->
+  <div class="modal-overlay" id="modal-esp-60" data-modal>
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">Английский для специальных целей · 60 минут</h3>
+        <button class="modal-close" data-close-modal>&times;</button>
+      </div>
+      <div class="modal-grid">
+        <div class="modal-carousel" data-carousel>
+          <div class="carousel-track">
+            <div class="carousel-slide is-active">
+              <img src="img/esp-60-1.jpg" alt="ESP: английский для медицины и бизнеса" />
+            </div>
+            <div class="carousel-slide">
+              <img src="img/esp-60-2.jpg" alt="Работа с кейсами и презентациями" />
+            </div>
+          </div>
+          <button class="carousel-control prev" data-carousel-prev>&lsaquo;</button>
+          <button class="carousel-control next" data-carousel-next>&rsaquo;</button>
+        </div>
+        <div class="modal-content">
+          <p>
+            Для специалистов, которым важно уверенно чувствовать себя в профессиональной коммуникации: встречи,
+            переписка, отчёты, конференции.
+          </p>
+          <p>
+            Материалы подбираются под твою сферу: медицина, бизнес, управление и другие направления, где нужен точный и
+            живой английский.
+          </p>
+          <p class="modal-price">Стоимость: <span>2000 ₽ / занятие (60 минут)</span></p>
+          <div class="modal-footer">
+            <a
+              class="btn-comic primary"
+              href="https://vk.com/milochkamari"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Купить и обсудить расписание
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ESP 90 -->
+  <div class="modal-overlay" id="modal-esp-90" data-modal>
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">Английский для специальных целей · 90 минут</h3>
+        <button class="modal-close" data-close-modal>&times;</button>
+      </div>
+      <div class="modal-grid">
+        <div class="modal-carousel" data-carousel>
+          <div class="carousel-track">
+            <div class="carousel-slide is-active">
+              <img src="img/esp-90-1.jpg" alt="Углублённый ESP-курс" />
+            </div>
+            <div class="carousel-slide">
+              <img src="img/esp-90-2.jpg" alt="Подготовка к выступлениям и конференциям" />
+            </div>
+          </div>
+          <button class="carousel-control prev" data-carousel-prev>&lsaquo;</button>
+          <button class="carousel-control next" data-carousel-next>&rsaquo;</button>
+        </div>
+        <div class="modal-content">
+          <p>
+            Для тех, кому нужен серьёзный профессиональный английский: презентации, сложные переговоры, публикации и
+            подготовка к международным мероприятиям.
+          </p>
+          <p>
+            Время используем максимально: моделируем реальные ситуации, разбираем тексты и выстраиваем стратегию
+            развития навыков.
+          </p>
+          <p class="modal-price">Стоимость: <span>2500 ₽ / занятие (90 минут)</span></p>
+          <div class="modal-footer">
+            <a
+              class="btn-comic primary"
+              href="https://vk.com/milochkamari"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Купить и обсудить расписание
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Kids 6+ -->
+  <div class="modal-overlay" id="modal-kids-6" data-modal>
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">Английский для детей 6+ · 45 минут</h3>
+        <button class="modal-close" data-close-modal>&times;</button>
+      </div>
+      <div class="modal-grid">
+        <div class="modal-carousel" data-carousel>
+          <div class="carousel-track">
+            <div class="carousel-slide is-active">
+              <img src="img/kids-6-1.jpg" alt="Игровые занятия для детей 6+" />
+            </div>
+            <div class="carousel-slide">
+              <img src="img/kids-6-2.jpg" alt="Карточки и игры для младших школьников" />
+            </div>
+          </div>
+          <button class="carousel-control prev" data-carousel-prev>&lsaquo;</button>
+          <button class="carousel-control next" data-carousel-next>&rsaquo;</button>
+        </div>
+        <div class="modal-content">
+          <p>
+            Бережный старт в английском: игры, картинки, песни и короткие диалоги. Цель — чтобы ребёнок не боялся языка и
+            ждал занятия.
+          </p>
+          <p class="modal-price">Стоимость: <span>1000 ₽ / занятие (45 минут)</span></p>
+          <div class="modal-footer">
+            <a
+              class="btn-comic primary"
+              href="https://vk.com/milochkamari"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Купить и обсудить расписание
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Kids 11+ -->
+  <div class="modal-overlay" id="modal-kids-11" data-modal>
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">Английский для детей 11+ · 60 минут</h3>
+        <button class="modal-close" data-close-modal>&times;</button>
+      </div>
+      <div class="modal-grid">
+        <div class="modal-carousel" data-carousel>
+          <div class="carousel-track">
+            <div class="carousel-slide is-active">
+              <img src="img/kids-11-1.jpg" alt="Английский для подростков" />
+            </div>
+            <div class="carousel-slide">
+              <img src="img/kids-11-2.jpg" alt="Современные материалы для подростков" />
+            </div>
+          </div>
+          <button class="carousel-control prev" data-carousel-prev>&lsaquo;</button>
+          <button class="carousel-control next" data-carousel-next>&rsaquo;</button>
+        </div>
+        <div class="modal-content">
+          <p>
+            Поддержка школьной программы + современный контент: видео, статьи, обсуждение тем, которые действительно
+            интересны подростку.
+          </p>
+          <p class="modal-price">Стоимость: <span>1500 ₽ / занятие (60 минут)</span></p>
+          <div class="modal-footer">
+            <a
+              class="btn-comic primary"
+              href="https://vk.com/milochkamari"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Купить и обсудить расписание
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Club 60 -->
+  <div class="modal-overlay" id="modal-club-60" data-modal>
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">Разговорный клуб · 60 минут</h3>
+        <button class="modal-close" data-close-modal>&times;</button>
+      </div>
+      <div class="modal-grid">
+        <div class="modal-carousel" data-carousel>
+          <div class="carousel-track">
+            <div class="carousel-slide is-active">
+              <img src="img/club-60-1.jpg" alt="Разговорный клуб по английскому" />
+            </div>
+            <div class="carousel-slide">
+              <img src="img/club-60-2.jpg" alt="Обсуждение фильмов и книг на английском" />
+            </div>
+          </div>
+          <button class="carousel-control prev" data-carousel-prev>&lsaquo;</button>
+          <button class="carousel-control next" data-carousel-next>&rsaquo;</button>
+        </div>
+        <div class="modal-content">
+          <p>
+            Для тех, кому важно говорить, а не только «учить язык». Мини-группа или индивидуальный формат — по договорённости.
+          </p>
+          <p class="modal-price">Стоимость: <span>1200 ₽ / занятие (60 минут)</span></p>
+          <div class="modal-footer">
+            <a
+              class="btn-comic primary"
+              href="https://vk.com/milochkamari"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Купить и обсудить расписание
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Club 90 -->
+  <div class="modal-overlay" id="modal-club-90" data-modal>
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">Разговорный клуб · 90 минут</h3>
+        <button class="modal-close" data-close-modal>&times;</button>
+      </div>
+      <div class="modal-grid">
+        <div class="modal-carousel" data-carousel>
+          <div class="carousel-track">
+            <div class="carousel-slide is-active">
+              <img src="img/club-90-1.jpg" alt="Интенсивный разговорный клуб" />
+            </div>
+            <div class="carousel-slide">
+              <img src="img/club-90-2.jpg" alt="Дискуссии и разговорные игры" />
+            </div>
+          </div>
+          <button class="carousel-control prev" data-carousel-prev>&lsaquo;</button>
+          <button class="carousel-control next" data-carousel-next>&rsaquo;</button>
+        </div>
+        <div class="modal-content">
+          <p>
+            Формат для любителей поговорить: больше времени на обсуждения, игры и живые сценарии общения.
+          </p>
+          <p class="modal-price">Стоимость: <span>1600 ₽ / занятие (90 минут)</span></p>
+          <div class="modal-footer">
+            <a
+              class="btn-comic primary"
+              href="https://vk.com/milochkamari"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Купить и обсудить расписание
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Открытие модальных окон
+    document.querySelectorAll('[data-open-modal]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var id = btn.getAttribute('data-open-modal');
+        var modal = document.getElementById(id);
+        if (modal) {
+          modal.classList.add('is-open');
+        }
+      });
+    });
+
+    // Закрытие модалок по кнопке и клику по фону
+    document.querySelectorAll('[data-modal]').forEach(function (overlay) {
+      overlay.addEventListener('click', function (e) {
+        if (e.target === overlay) {
+          overlay.classList.remove('is-open');
+        }
+      });
+    });
+
+    document.querySelectorAll('[data-close-modal]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var overlay = btn.closest('[data-modal]');
+        if (overlay) overlay.classList.remove('is-open');
+      });
+    });
+
+    // Простая карусель для каждой модалки
+    document.querySelectorAll('[data-carousel]').forEach(function (carousel) {
+      var slides = carousel.querySelectorAll('.carousel-slide');
+      var track = carousel.querySelector('.carousel-track');
+      var current = 0;
+
+      function updateSlides() {
+        slides.forEach(function (slide, index) {
+          slide.classList.toggle('is-active', index === current);
+        });
+        if (track) {
+          track.style.transform = 'translateX(' + -current * 100 + '%)';
+        }
+      }
+
+      var prevBtn = carousel.querySelector('[data-carousel-prev]');
+      var nextBtn = carousel.querySelector('[data-carousel-next]');
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          current = (current - 1 + slides.length) % slides.length;
+          updateSlides();
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          current = (current + 1) % slides.length;
+          updateSlides();
+        });
+      }
+
+      updateSlides();
+    });
+
+    // Колесо фортуны: один запуск на браузер
+    (function () {
+      var wheel = document.getElementById('fortune-wheel');
+      var btn = document.getElementById('fortune-spin-btn');
+      var resultEl = document.getElementById('fortune-result');
+      if (!wheel || !btn || !resultEl) return;
+
+      var prizes = [
+        '1 — скидка на первый месяц 10%',
+        '2 — бесплатный урок',
+        '3 — полезная ПДФка',
+        '4 — скидка на курс 10%',
+        '5 — ААААААВТОМОБИЛЬ'
+      ];
+
+      var storageKey = 'mary_fortune_used';
+      var saved = localStorage.getItem(storageKey);
+
+      if (saved) {
+        btn.disabled = true;
+        btn.textContent = 'Колесо уже использовано';
+        btn.classList.add('is-disabled');
+        resultEl.textContent = 'Ты уже запускал(а) колесо: ' + saved + ' 🎁';
+      }
+
+      var isSpinning = false;
+
+      btn.addEventListener('click', function () {
+        if (isSpinning) return;
+
+        if (localStorage.getItem(storageKey)) {
+          resultEl.textContent = 'Колесо можно запустить только один раз.';
+          btn.disabled = true;
+          btn.classList.add('is-disabled');
+          return;
+        }
+
+        isSpinning = true;
+
+        var segmentAngle = 360 / prizes.length;
+        var index = Math.floor(Math.random() * prizes.length);
+
+        // немного рандома внутри сектора
+        var randomOffset = (Math.random() - 0.5) * (segmentAngle * 0.4);
+
+        // начало градиента наверху
+        var targetAngle =
+          360 * 4 + // несколько полных оборотов
+          (segmentAngle * index + segmentAngle / 2) +
+          randomOffset;
+
+        wheel.style.transform = 'rotate(' + targetAngle + 'deg)';
+
+        setTimeout(function () {
+          var prize = prizes[index];
+          resultEl.textContent = 'Тебе выпало: ' + prize + ' 🎉';
+          localStorage.setItem(storageKey, prize);
+          btn.disabled = true;
+          btn.textContent = 'Колесо уже использовано';
+          btn.classList.add('is-disabled');
+          isSpinning = false;
+        }, 4200);
+      });
+    })();
+  </script>
+</body>
+</html>
