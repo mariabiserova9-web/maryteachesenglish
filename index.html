@@ -634,25 +634,25 @@
       overflow: hidden;
     }
 
+    /* короткие подписи ради читаемости */
     .fortune-label {
       position: absolute;
-      width: 70%;          /* чуть больше “луч” для текста */
+      width: 50%;
       left: 50%;
       top: 50%;
       transform-origin: 0% 50%;
       font-size: 11px;
-      padding-right: 8px;
+      padding-right: 6px;
       text-align: right;
-      white-space: nowrap; /* не даём тексту ломаться на несколько строк */
+      white-space: nowrap;
     }
 
-    /* центры пяти секторов по кругу */
+    /* центры секторов */
     .fortune-label-1 { transform: rotate(-36deg) translateX(-50%); }
     .fortune-label-2 { transform: rotate(36deg) translateX(-50%); }
     .fortune-label-3 { transform: rotate(108deg) translateX(-50%); }
     .fortune-label-4 { transform: rotate(180deg) translateX(-50%); }
     .fortune-label-5 { transform: rotate(252deg) translateX(-50%); }
-
 
     .fortune-controls {
       display: grid;
@@ -671,6 +671,18 @@
       color: var(--text-soft);
     }
 
+    .fortune-legend {
+      margin-top: 6px;
+      font-size: 12px;
+      color: var(--text-soft);
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .fortune-legend li + li {
+      margin-top: 2px;
+    }
+
     .btn-comic.is-disabled {
       background: #dddddd;
       box-shadow: none;
@@ -682,6 +694,13 @@
       box-shadow: none;
       background: #dddddd;
     }
+
+    @media (max-width: 880px) {
+      .fortune-layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
 
     /* ===== Контакты и форма ===== */
     .contact-layout {
@@ -1072,7 +1091,7 @@
       </div>
     </section>
 
-    <!-- КОЛЕСО ФОРТУНЫ -->
+     <!-- КОЛЕСО ФОРТУНЫ -->
     <section class="panel fortune-panel" id="fortune">
       <div class="section-title-row">
         <h2 class="section-title">Колесо бонусов</h2>
@@ -1087,11 +1106,12 @@
         <div class="fortune-wheel-wrap">
           <div class="fortune-pointer"></div>
           <div class="fortune-wheel" id="fortune-wheel">
-            <div class="fortune-label fortune-label-1">Скидка на первый месяц 10%</div>
-            <div class="fortune-label fortune-label-2">Бесплатный урок</div>
-            <div class="fortune-label fortune-label-3">Полезная ПДФка</div>
-            <div class="fortune-label fortune-label-4">Скидка на курс 10%</div>
-            <div class="fortune-label fortune-label-5">ААААААВТОМОБИЛЬ</div>
+            <!-- короткие подписи, чтобы не съезжали -->
+            <div class="fortune-label fortune-label-1">Месяц −10%</div>
+            <div class="fortune-label fortune-label-2">Урок</div>
+            <div class="fortune-label fortune-label-3">PDF</div>
+            <div class="fortune-label fortune-label-4">Курс −10%</div>
+            <div class="fortune-label fortune-label-5">АВТО</div>
           </div>
         </div>
 
@@ -1101,8 +1121,16 @@
           </button>
           <p class="fortune-result" id="fortune-result"></p>
           <p class="fortune-note">
-            Результат можно будет зафиксировать в переписке — просто напиши, что тебе выпало на колесе 💫
+            Результат можно будет зафиксировать в переписке — просто напиши, что тебе
+            выпало на колесе 💫
           </p>
+          <ul class="fortune-legend">
+            <li><strong>Месяц −10%</strong> — скидка на первый месяц занятий.</li>
+            <li><strong>Урок</strong> — один бесплатный урок.</li>
+            <li><strong>PDF</strong> — полезная ПДФ-подборка от меня.</li>
+            <li><strong>Курс −10%</strong> — скидка 10% на курс.</li>
+            <li><strong>АВТО</strong> — просто мем, но тоже приятно 🙂</li>
+          </ul>
         </div>
       </div>
     </section>
