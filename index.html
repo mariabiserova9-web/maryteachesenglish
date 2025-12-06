@@ -25,6 +25,9 @@
       --shadow-comic: 4px 4px 0 #111111;
       --radius-card: 18px;
       --nav-height: 64px;
+  --fortune-offset: -18deg;
+}
+
     }
 
     * {
@@ -646,12 +649,22 @@
       text-align: right;
     }
 
-/* центры секторов так, чтобы каждая цифра была внутри своего цвета */
-.fortune-label-1 { transform: rotate(-54deg) translateX(-50%); }
-.fortune-label-2 { transform: rotate(18deg) translateX(-50%); }
-.fortune-label-3 { transform: rotate(90deg) translateX(-50%); }
-.fortune-label-4 { transform: rotate(162deg) translateX(-50%); }
-.fortune-label-5 { transform: rotate(234deg) translateX(-50%); }
+/* центры пяти секторов, считаем от офсета */
+.fortune-label-1 {
+  transform: rotate(calc(var(--fortune-offset) + 0deg)) translateX(-50%);
+}
+.fortune-label-2 {
+  transform: rotate(calc(var(--fortune-offset) + 72deg)) translateX(-50%);
+}
+.fortune-label-3 {
+  transform: rotate(calc(var(--fortune-offset) + 144deg)) translateX(-50%);
+}
+.fortune-label-4 {
+  transform: rotate(calc(var(--fortune-offset) + 216deg)) translateX(-50%);
+}
+.fortune-label-5 {
+  transform: rotate(calc(var(--fortune-offset) + 288deg)) translateX(-50%);
+}
 
 
     .fortune-controls {
